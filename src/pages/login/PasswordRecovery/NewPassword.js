@@ -17,7 +17,6 @@ export default function NewPassword() {
     const [passWordSet, setPassWordSet] = useState(false);
     const token = localStorage.getItem("resset_token");
 
-    console.log(token);
     const handleFinish = () => {
         history.push("/connexion");
         localStorage.setItem("ressetToken", "");
@@ -33,7 +32,7 @@ export default function NewPassword() {
         if (valid) {
             setLoading(true);
             axios
-                .post(`/api/user/reset_password`, { token, password })
+                .post(`/user/reset_password`, { token, password })
                 .then(res => {
                     const d = res.data;
 

@@ -2,8 +2,9 @@ import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Fade, Typography, CircularProgress } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import TextInput from '../../../components/Inputs/TextInput';
+import TextInput, { CodeInput } from '../../../components/Inputs/TextInput';
 import axios from '../../../config/axios';
+import NumberFormat from 'react-number-format';
 
 const TelVerification = () => {
     const history = useHistory();
@@ -14,21 +15,11 @@ const TelVerification = () => {
     const [loading, setLoading] = useState(false);
     const [verifying, setVerifying] = useState(false);
     const [error, setError] = useState({});
-    const [code, setCode] = useState({
-        fst: '', snd: '', trd: '', frth: '', fth: '', sth: ''
-    });
-
-    const inputRef = useRef();
-    const fst = useRef();
-    const snd = useRef();
-    const trd = useRef();
-    const frth = useRef();
-    const fth = useRef();
-    const sth = useRef();
+    const [code, setCode] = useState('');
 
     const resetVerifyCode = () => {
         setCodeSent(false);
-        setCode({ fst: '', snd: '', trd: '', frth: '', fth: '', sth: '' });
+        setCode('');
         setVerificationError(null);
         setTel('');
     };
@@ -44,7 +35,7 @@ const TelVerification = () => {
             setLoading(true);
 
             axios
-                .get(`/api/user/reset_password/${tel}/request_code`)
+                .get(`/user/reset_password/${tel}/request_code`)
                 .then(res => {
                     const d = res.data;
 
@@ -78,15 +69,26 @@ const TelVerification = () => {
 
     const submitTelVerificationToken = () => {
         setVerifying(true);
-        const c = `${code.fst}${code.snd}${code.trd}${code.frth}${code.fth}${code.sth}`;
+        // Checking if the code does not have some unetered values
+        if (code.indexOf('-') !== -1) {
+            console.log("Mauvais code");
+            setVerificationError("Mauvais code.");
+            return;
+        }
 
+        // Reformating the code (Removing spaces)
+        let c = "";
+        for (let i = 0; i < code.length; i++) {
+            if (code[i].indexOf(' ') === -1) {
+                c = c.concat(code[i]);
+            }
+        }
         axios
-            .post(`/api/user/reset_password/${tel}/resset_password_token`, { code: c })
+            .post(`/user/reset_password/${tel}/resset_password_token`, { code: c })
             .then(res => {
                 const d = res.data;
 
                 if (d.code) {
-                    console.log(d.message);
                     setVerificationError(d.message);
                 } else if (d.status === "approved") {
                     setVerificationError(null);
@@ -103,60 +105,19 @@ const TelVerification = () => {
             .finally(() => setVerifying(false));
     };
 
-    const onCodeChange = (e, name) => {
-        const val = e.target.value;
-
-        setCode(code => ({ ...code, [name]: val }));
-
-        if (name === 'fst' && snd.current) {
-            if (val === "") {
-                return;
-            }
-
-            snd.current.focus();
-        } else if (name === 'snd' && trd.current) {
-            if (val === "") {
-                fst.current.focus();
-                return;
-            }
-
-            trd.current.focus();
-        } else if (name === 'trd' && frth.current) {
-            if (val === "") {
-                snd.current.focus();
-                return;
-            }
-
-            frth.current.focus();
-        } else if (name === 'frth' && fth.current) {
-            if (val === "") {
-                trd.current.focus();
-                return;
-            }
-
-            fth.current.focus();
-        } else if (name === 'fth' && sth.current) {
-            if (val === "") {
-                frth.current.focus();
-                return;
-            }
-
-            sth.current.focus();
-        } else if (name === 'sth' && fth.current) {
-            if (val === "") {
-                fth.current.focus();
-                return;
-            }
-
-            sth.current.focus();
-        }
-    };
-
+    const inputRef = useRef();
+    const telRef = useRef();
     React.useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.focus();
+        if (!codeSent) {
+            if (telRef.current) {
+                telRef.current.focus();
+            }
+        } else {
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
         }
-    }, []);
+    }, [codeSent]);
 
     return (
         <div style={{ width: '100%' }}>
@@ -214,7 +175,7 @@ const TelVerification = () => {
                                             }}
                                         />
                                         <TextInput
-                                            ref={inputRef}
+                                            inputProps={{ ref: telRef }}
                                             name="tel"
                                             id="tel"
                                             type="tel"
@@ -248,14 +209,17 @@ const TelVerification = () => {
                         <div>
                             <Typography variant="h5" className="section-title" style={{ textAlign: 'left', marginBottom: 10 }}>Vérification du numéro de téléphone</Typography>
                             <Typography variant="body2" color="textSecondary" style={{ textAlign: 'left', marginBottom: 10 }}>Un code à 6 chiffres a été envoyé au numéro de téléphone {tel}.</Typography>
-                            <label className="code-input">
-                                <input ref={fst} maxLength={1} placeholder="-" value={code.fst} onChange={e => onCodeChange(e, 'fst')} />
-                                <input ref={snd} maxLength={1} placeholder="-" value={code.snd} onChange={e => onCodeChange(e, 'snd')} />
-                                <input ref={trd} maxLength={1} placeholder="-" value={code.trd} onChange={e => onCodeChange(e, 'trd')} />
-                                <input ref={frth} maxLength={1} placeholder="-" value={code.frth} onChange={e => onCodeChange(e, 'frth')} />
-                                <input ref={fth} maxLength={1} placeholder="-" value={code.fth} onChange={e => onCodeChange(e, 'fth')} />
-                                <input ref={sth} maxLength={1} placeholder="-" value={code.sth} onChange={e => onCodeChange(e, 'sth')} />
-                            </label>
+                            <NumberFormat
+                                format="#  #  #  #  #  #"
+                                customInput={CodeInput}
+                                allowNegative={false}
+                                allowLeadingZeros={true}
+                                mask="-"
+                                placeholder="- - - - - -"
+                                onChange={e => setCode(e.target.value)}
+                                value={code}
+                                inputRef={elt => (inputRef.current = elt)}
+                            />
                             <Button
                                 className="btn"
                                 variant="text"

@@ -115,6 +115,7 @@ export default function TrouverArtisan() {
     };
 
     const goToNextStep = () => {
+        console.log(step);
         if (step >= 5) {
             return;
         }
@@ -264,6 +265,16 @@ export default function TrouverArtisan() {
             setGammes(serv.gamme_travaux);
         }
     }, [service, services]);
+
+    useEffect(() => {
+        if (user) {
+            setNom(user.nom);
+            setPrenom(user.prenom);
+            setSex(user.sexe);
+            setTel(user.tel);
+            setEmail(user.email);
+        }
+    }, [user]);
 
     const classes = useStyles();
     return (
