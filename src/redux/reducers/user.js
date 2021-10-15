@@ -14,7 +14,7 @@ const initialState = {
 export const getConnectedUser = createAsyncThunk(
     'user/get connected one',
     async () => {
-        const response = await axios.get('/user');
+        const response = await axios.get('/auth');
         return response.data;
     }
 );

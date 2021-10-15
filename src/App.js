@@ -14,11 +14,13 @@ import { useDispatch } from 'react-redux';
 import { getServices } from './redux/reducers/service';
 import { getTravaux } from './redux/reducers/travail';
 import { getZones } from './redux/reducers/zones';
+import { getConnectedUser } from './redux/reducers/user';
 import PasswordRecovery from './pages/login/PasswordRecovery';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getConnectedUser());
     dispatch(getZones());
     dispatch(getTravaux());
     dispatch(getServices());
