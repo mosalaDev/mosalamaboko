@@ -1,0 +1,50 @@
+.dash-reservation .tools {
+    display: flex;
+    box-shadow: 0px 0px 1px 0px #9c9c9c;
+    padding: 20px 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filters {
+    border-bottom: 1px solid #eaeaea;
+    margin-top: 30px;
+}
+
+.reservation-list {
+    padding: 30px 0;
+}
+
+@media (max-width: 900px) {
+    .dash-reservation .tools {
+        flex-direction: column-reverse;
+        padding: 15px;
+    }
+    .dash-reservation .tools .btn {
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 700px) {
+    .dash-reservation .tools {
+        flex-direction: row;
+        padding: 15px;
+        align-items: center;
+    }
+    .dash-reservation .tools .btn {
+        margin-bottom: 0;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    .dash-reservation .tools {
+        flex-direction: column-reverse;
+        padding: 15px;
+    }
+    .dash-reservation .tools .btn {
+        margin-bottom: 10px;
+    }
+    .tab {
+        flex: 1;
+    }
+}

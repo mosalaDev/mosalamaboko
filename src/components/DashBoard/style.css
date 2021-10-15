@@ -1,0 +1,242 @@
+/* Sidebar or left aside */
+
+.side-logo-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    transition: padding .2s;
+}
+
+.side-logo-container .logo {
+    width: 50px;
+    max-width: 50px;
+    height: auto;
+}
+
+.side-logo-container h6 {
+    font-size: 15px!important;
+    font-weight: 600!important;
+}
+
+.sidebar .toolbar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-menu {
+    padding: 20px 0;
+}
+
+.sidebar-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    color: #7c7c7c;
+    transition: background .2s, margin .2s;
+}
+
+.sidebar-menu-item p {
+    transition: visibility, opacity 0.2s;
+}
+
+.sidebar-menu-item-active{
+    background: #0230ff0f;
+    color: #0230ff;
+    font-weight: 600;
+    border-top: 1px solid #0230ff;
+    border-bottom: 1px solid #0230ff;
+    border-left: 1px solid #0230ff;
+    margin-left: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.sidebar-menu-item:hover {
+    color: #0230ff;
+    /* background-color: #0230ff1f; */
+}
+
+.sidebar-menu-item svg {
+    color: inherit
+}
+
+.sidebar-menu-item p {
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.user {
+    padding: 15px 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.user p {
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+.stat-btn {
+    display: none!important;
+}
+
+/* Right aside */
+.right-aside {
+    margin-top: 65px;
+}
+
+.inner-aside {
+    padding: 0 20px;
+    background-color: #fff;
+    height: fit-content;
+    max-width: 315px;
+    min-width: 300px;
+    color: #484848;
+    box-shadow: 0px 0px 1px 0px #9c9c9c;
+    margin-bottom: 70px;
+}
+
+.aside-card {
+    padding: 10px 0;
+}
+
+.aside-card > div:last-child {
+    width: fit-content;
+}
+
+.aside-card > div:last-child p {
+    line-height: 1;
+    font-size: 17px!important;
+    color: #0020b1b8;
+}
+
+.aside-card > div:first-child p {
+    line-height: 1;
+}
+
+.aside-card > div:first-child {
+    margin-bottom: 10px;
+}
+
+.right-aside .vertical-list:not(:last-child) {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.right-aside .vertical-list {
+    padding: 30px 0;
+}
+
+.aside-service-card {
+    display: flex;
+    align-items: center;
+    padding: 7px 0;
+}
+
+.aside-service-card .service-image {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    min-height: 30px;
+    margin-right: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.aside-service-card > p {
+    text-transform: capitalize;
+}
+
+.close-right-aside {
+    display: none!important;
+}
+
+@media (max-width: 800px) {
+    .right-aside {
+        max-width: 270px;
+        min-width: 270px;
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    .right-aside {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        min-width: 0vw;
+        width: 0;
+        max-width: 100vh;
+        background-color: #9b9b9b0d;
+        margin-top: 0;
+        margin-right: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: flex-end;
+        visibility: hidden;
+        z-index: 10000;
+        opacity: 0;
+        transition: width 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+    .r-aside-open {
+        width:100vh!important;
+        visibility: visible;
+        opacity: 1;
+    }
+    .close-right-aside {
+        display: inline-flex!important;
+    }
+    .inner-aside {
+        position: relative;
+        min-height: 100vh;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    .stat-btn {
+        display: inline-flex!important;
+    }
+}
+
+/* Reservation card */
+
+.reservation-card {
+    display: flex;
+    justify-content: space-between!important;
+    align-items: center;
+    cursor: pointer;
+    transition: background .3s;
+    text-align: start!important;
+}
+
+.reservation-card:hover {
+    background-color: #0020b10a;
+}
+
+.reservation-card .description {
+    flex-grow: 1;
+    padding: 15px 10px;
+    margin-right: 0;
+}
+
+.state {
+    position: relative;
+    padding: 15px 20px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .reservation-card .description {
+        padding: 10px;
+    }
+    .reservation-card .description p {
+        line-height: 1.4;
+    }
+}

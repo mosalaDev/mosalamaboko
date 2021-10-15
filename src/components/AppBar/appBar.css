@@ -1,0 +1,157 @@
+.appbar {
+    width: 100%;
+    background-color: #ffffff;
+    backdrop-filter: blur(20px);
+}
+
+.inner-appbar {
+    min-height: 70px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.logo,
+.connexion {
+    flex: 1;
+}
+
+.logo {
+    display: flex;
+    align-items: center; 
+}
+
+.logo .logo-image {
+    width: 85px;
+    height: 60px;
+}
+
+.logo-string {
+    font-size: 15px!important;
+    font-weight: 700!important;
+    font-family: unset!important;
+    margin-left: 5px!important;
+}
+
+.appbar .avatar {
+    background-color: #ff7a00!important;
+    cursor: pointer;
+}
+
+.appbar .menu,
+.connexion {
+    display: flex;
+    align-items: center;
+}
+
+.appbar .menu {
+    justify-content: flex-end;
+    color: #444;
+    margin-right: 20px;
+}
+
+.appbar .menu-btn {
+    border: none!important;
+    align-self: center;
+    margin-left: -10px!important;
+}
+
+.appbar .menu-item {
+    position: relative;
+    display: block;
+    padding: 7px 0px;
+    height: fit-content;
+    font-weight: 600!important;
+    transition: all .2s;
+    font-size: 17px;
+    margin: 0 10px;
+}
+
+.appbar .menu-item:hover {
+    color: #03038e;
+}
+
+.appbar .menu-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50%;
+    background-color: #03038e;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    transition: all .2s;
+    opacity: 0;
+}
+
+.appbar .menu-item:hover::before {
+    opacity: 1;
+}
+
+.connexion {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1
+}
+
+.connexion .reserv {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.connexion .btn {
+    padding: 5px 20px;
+    max-width: 235px;
+}
+
+.popper-content {
+    position: relative;
+    min-height: 300px;
+}
+
+.popper-content::before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    background-color: #fff;
+    top: -8px;
+    right: 26px;
+    height: 13px;
+    width: 13px;
+    transform: rotate(45deg);
+    border-left: 1px solid rgba(0, 0, 0, 0.58);
+    border-top: 1px solid rgba(0, 0, 0, 0.58);
+    transition: opacity 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+@media (max-width: 700px) {
+    .logo-string{
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    .connexion .btn:first-child {
+        padding: 5px 10px;
+        max-width: 170px;
+    }
+    .popper-content::before{
+        right: 14px;
+    }
+    .connexion .reserv {
+        margin-right: 0;
+    }
+}
+@media (max-width: 900px) {
+    .appbar .menu{
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .avatar {
+        margin-right: 10px;
+    }
+}

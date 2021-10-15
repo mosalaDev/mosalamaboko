@@ -1,0 +1,172 @@
+.devis {
+    padding: 0;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row-reverse;
+    height: calc(100vh - 70px);
+}
+.form-container section{
+    flex: 1;
+    color: #000000b4;
+}
+
+.form-container .form {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.form .section-title {
+    text-align: left;
+}
+
+.form-block {
+    min-width: 300px;
+}
+
+.block-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.block-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #0000007d;
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.block-title {
+    font-weight: 600!important;
+}
+
+.block-body {
+    margin: 0 30px;
+}
+
+.form .label {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.devis .select {
+    margin: 20px 0 30px;
+    width: 100%;
+}
+
+.block-body .form-actions {
+    margin-top: 30px;
+    text-transform: inherit;
+    display: flex;
+}
+
+.block-body .btn {
+    display: flex!important;
+    align-items: center;
+    font-weight: 500;
+}
+
+.devis .date-time {
+    display: flex;
+    margin: 20px 0;
+    text-align: start;
+}
+
+.date-time >:not(:last-child) {
+    margin-right: 10px;
+}
+
+
+.contact-header {
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    width: 22px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.input-group >:not(:last-child) {
+    margin-right: 10px;
+}
+
+.btn-group {
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-group >:not(:last-child) {
+    margin: 0 0 10px 0;
+}
+
+
+.illustration .section-title {
+    color: #fff;
+    z-index: 20;
+}
+
+.illustration {
+    background-color: #0020b10d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.illustration::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: #dab400;
+}
+
+.modal-content {
+    min-width: 350px;
+    max-width: 400px;
+}
+
+.modal-content-title {
+    margin: 0 0 10px 0;
+    font-weight: 500!important;
+}
+
+.modal-content-body {
+    margin: 15px 0
+}
+
+.m-checkbox:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+.devis .MuiOutlinedInput-input {
+    padding: 11.5px 14px;
+}

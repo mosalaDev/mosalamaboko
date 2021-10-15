@@ -1,0 +1,156 @@
+.hero {
+    background-color: #fff;
+    width: 100%;
+    color: rgb(12, 12, 12);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px 0!important;
+}
+
+.hero .hero-content {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.actions {
+    width: 355px;
+    max-width: 70%;
+    min-width: 200px;
+    margin-top: 20px;
+}
+
+.hero-content div:first-child {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: inherit;
+    justify-content: center;
+}
+
+.hero .actions .btn {
+    margin: 10px 0;
+    font-size: 22px;
+    font-weight: 500!important;
+    padding: 10px 0;
+}
+
+.hero .hero-content .title {
+    font-size: 55px;
+    font-weight: bold!important;
+}
+
+.hero .hero-content .devise {
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+.hero-image {
+    flex-grow: 1;
+    flex-basis: 900px;
+}
+
+.help {
+    background-color: #fbfbfb;
+}
+
+.help .inner-content {
+    padding: 0;
+}
+
+.services {
+    padding: 30px 0;
+}
+
+.service {
+    padding-bottom: 0!important;
+    background-color: #fff;
+    padding: 70px 0!important;
+}
+
+
+.service .inner-content{
+    padding: 0;
+}
+
+.services .card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.engagement{
+    background-color: #fff;
+    position: relative;
+}
+
+.engagement .actions {
+    width: 350px!important;
+    margin-top: 32px;
+}
+
+.engagement .btn {
+    font-size: 22px!important;
+    font-weight: 500!important;
+}
+
+.devenir {
+    background-color: #fff;
+}
+
+@media (max-width: 950px) {
+    .hero {
+        background-position: top;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .hero .hero-content .title {
+        font-size: 48px;
+    }
+    .hero .hero-content{
+        width: 100%;
+        height: 63vh;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+    }
+    .hero-image {
+        max-width: 300px;
+        flex-basis: auto;
+        flex-grow: initial;
+    }
+    .hero-content div:first-child {
+        align-items: center;
+    }
+}
+@media (max-width: 600px) {
+    .hero .hero-content .title {
+        font-size: 25px;
+    }
+    .hero .hero-content .devise {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+    .hero .actions {
+        margin-top: 10px;
+    }
+    .engagement .actions,
+    .actions {
+        width: 90%!important;
+    }
+    .engagement .btn,
+    .hero .actions .btn {
+        font-size: 17px!important;
+        padding: 6px 0;
+        margin: 0
+    }
+    .hero-image {
+        max-width: 170px;
+    }
+}

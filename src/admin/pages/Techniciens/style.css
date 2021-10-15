@@ -1,0 +1,145 @@
+.admin-technicien {
+    width: 100%;
+    display: flex;
+}
+
+.tech-title {
+    font-size: 15px!important;
+}
+
+.admin-technicien .filters {
+    margin-top: 10px;
+}
+
+.inner-technicien {
+    max-width: 600px;
+    border-right: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+    padding: 20px 0px;
+    min-height: calc(100vh - 120px);
+    margin: auto;
+}
+
+.inner-technicien header .filters,
+.inner-technicien header h2 {
+    padding: 0 15px;
+}
+
+.tech-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    padding: 0;
+}
+
+.tech-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eaeaea;
+    transition: background .2s;
+}
+
+.tech-card:hover {
+    background-color: #f7f7f7;
+}
+
+.tech-card > span:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.tech-card .etat {
+    display: inline-block;
+    padding: 2px 11px;
+    border-radius: 17px;
+    color: #fff
+}
+
+.tech-card > span:last-child {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Tech profile */
+
+.tech-profile {
+    flex-grow: 1;
+}
+
+.profile-content {
+    display: flex;
+    max-width: 600px;
+    margin: auto;
+    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+    min-height: calc(100vh - 100px);
+    padding: 20px 0;
+}
+
+.profile-content > div:first-child {
+    padding: 0 20px;
+    display: flex;
+}
+
+.profile-content > div:last-child {
+    flex-grow: 1;
+    padding: 0 20px 0 0;
+}
+
+.profile-content > div:last-child .filters {
+    margin-top: 0;
+}
+
+.tech-avatar {
+    width: 100px!important;
+    height: 100px!important;
+}
+
+.data-item {
+    margin-bottom: 10px!important;
+}
+.data-item.nom {
+    font-size: 25px;
+}
+
+.data-group {
+    margin: 10px 0;
+}
+
+.group-title {
+    font-size: 18px!important;
+    font-weight: bold;
+    margin: 0 0 10px 0!important;
+}
+
+.more-data {
+    margin: 10px 0;
+    height: fit-content;
+    transition: hight 225ms, opacity 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+}
+
+.profile-content .btn {
+    margin: 10px 0
+}
+
+.profile-content .value {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 17px;
+    background-color: #0130ff1f;
+    color: #0020b1;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.profile-content .tech-actions {
+    display: flex;
+}
+
+.profile-content .tech-actions .btn:last-child {
+    margin-left: 15px;
+}

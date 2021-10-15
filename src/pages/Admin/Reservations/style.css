@@ -1,0 +1,140 @@
+.admin-reservations {
+    display: flex;
+    padding: 20px 0;
+}
+
+.affectations {
+    width: 250px;
+    min-height: calc(100vh - 140px);
+    box-shadow: 1px 0px 5px #f1f1f1;
+    padding: 20px;
+}
+
+.reservations-container {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.reservations-container section {
+    padding: 20px;
+    box-shadow: 1px 1px 5px #eaeaea;
+} 
+
+.theader {
+    display: flex;
+    font-weight: 600;
+    background-color: #f9f9f9;
+}
+
+.tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.tr {
+    display: grid!important;
+    grid-template-columns: auto 2fr 1fr 1fr 1fr auto;
+    width: 100%;
+    text-align: start;
+    align-items: center;
+}
+
+.tr:nth-child(2n) {
+    background-color: #f9f9f9;
+}
+
+.tbody .tr {
+    border-bottom: 1px solid #eaeaea;
+    padding: 5px 10px;
+}
+
+.tr .btn {
+    padding: 3px 10px;
+    border-radius: 20px!important;
+    font-size: 11px;
+}
+
+.tc {
+    flex: 1;
+    padding: 3px 10px;
+    text-transform: capitalize;
+    height: 100%;
+}
+
+.tbody .tc {
+    padding: 10px;
+}
+
+.tbody .tr {
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.tbody .tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Single reservation */
+
+.single-res-container {
+    display: flex; 
+    padding: 20px 0;   
+    color: #444;
+}
+
+.single-res-container h4 {
+    font-size: 20px!important;
+}
+
+.reserv-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 15px;
+}
+
+.single-res-container div {
+    flex: 1
+}
+
+.reserv-body {
+    display: flex;
+    padding: 20px 0;
+}
+
+.reserv-data {
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.reserv-data > p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.data-title {
+    font-size: 17px!important;
+    margin-bottom: 10px!important;
+    font-weight: 600!important;
+    color: rgb(83, 83, 83);
+}
+
+.data-small-title {
+    font-size: 13px!important;
+    margin: 10px 0!important;
+    font-weight: bold!important;
+    color: rgb(83, 83, 83);
+}
+
+.reserv-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.reserv-actions > .btn:first-child {
+    margin-right: 15px;
+}

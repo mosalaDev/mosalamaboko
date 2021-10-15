@@ -1,0 +1,27 @@
+.block-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.block-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #0000007d;
+    color: #fff;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.block-title {
+    font-weight: 600!important;
+}
+
+.block-body {
+    margin: 0 30px;
+}

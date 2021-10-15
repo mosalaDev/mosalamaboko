@@ -1,0 +1,9 @@
+export { default as MainPage } from './MainPage';
+export { default as ServicesPage } from './Services';
+export { default as DemandeDevis } from './DemandeDevis';
+export { default as Reservation } from './Reservation';
+export { default as TrouverArtisan } from './TrouverArtisan';
+export { default as Login } from './login';
+export { default as Signup } from './signup';
+export { default as TechnicienForm } from './DevenirTechnicien';
+export { default as HelpCenterHome } from './HelpCenter/Home';

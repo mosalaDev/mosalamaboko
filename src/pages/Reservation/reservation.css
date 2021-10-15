@@ -1,0 +1,140 @@
+.inner-banner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    text-align: start;
+    max-width: 500px;
+}
+
+.banner .content-title {
+    font-size: 37px;
+    font-weight: 500;
+    margin-bottom: 10px!important;
+}
+
+.banner .content-detail {
+    font-size: 17px;
+    margin-top: 3px;
+}
+
+.reservation .form {
+    padding: 20px;
+}
+
+.checkbox-label {
+    font-size: 15px!important;
+}
+
+.artisan-container {
+    margin: auto;
+    transform: translateY(-55px);
+    padding: 30px;
+    background-color: #fff;
+    min-width: fit-content;
+    max-width: 630px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    box-shadow: 0px 1px 1px -1px rgb(0 0 0 / 20%), 0px 0px 1px 0px rgb(0 0 0 / 14%), 0px 1px 12px -1px rgb(0 0 0 / 12%);
+    border-radius: 5px;
+}
+
+.artisan-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    z-index: 15;
+}
+
+.question {
+    font-size: 23px!important;
+    text-align: center;
+    margin: 0 0 20px 0!important;
+}
+
+.reservation-form{
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+.content-body {
+    height: calc(100% - 32px);
+    margin: 0;
+}
+
+.form-block {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compte {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+    margin: auto
+}
+
+.block-content {
+    flex: 1;
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-content-title {
+    margin-bottom: 5px!important;
+}
+
+.content-title {
+    margin-bottom: 20px!important;
+}
+
+.picker {
+    flex: 1
+}
+
+.picker:not(:last-child){
+    margin-right: 20px;
+}
+
+.vertical-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.vertical-actions .btn {
+    border-radius: 20px!important;
+    margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+    .reservation .form-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        margin-top: 0;
+        padding: 10px;
+        box-shadow: 0px -1px 5px 0px #eaeaea;
+    }
+    .vertical-actions {
+        max-width: 95%;
+    }
+}
