@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainSwitchNavigation, ProfileNavigation, HelpCenterNavigation } from './navigations';
 import AdminNavigation from './admin';
 import { Login, Signup } from './pages';
@@ -27,7 +27,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router>
+    <Router
+      basename=""
+    >
       <ThemeProvider theme={theme}>
         <Switch>
           <ProtectedRoute
