@@ -2,8 +2,6 @@ import axios from 'axios';
 
 const token = localStorage.getItem('user');
 
-// https://mosala.herokuapp.com/api
-
 const a = axios.create({
     baseURL: 'https://mosala.herokuapp.com/api',
 });
