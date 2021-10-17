@@ -20,7 +20,7 @@ export default function Presentation() {
 
     const handleEmailChange = (e) => {
         const val = e.target.value;
-        if (token) {
+        if (decoded) {
             if (val === decoded.data.id) {
                 setExist(true);
             } else {
@@ -69,8 +69,10 @@ export default function Presentation() {
     };
 
     useEffect(() => {
-        const dec = jwt_decode(token);
-        setDecoded(dec);
+        if (token && token !== '') {
+            const dec = jwt_decode(token);
+            setDecoded(dec);
+        }
     }, [token]);
 
     useEffect(() => {
