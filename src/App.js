@@ -36,11 +36,11 @@ function App() {
             path="/client/:username"
             component={ProfileNavigation}
           />
-          <ForbidenRoute path="/connexion" component={Login} />
+          {/* <ForbidenRoute path="/connexion" component={Login} />
           <ForbidenRoute path="/créer_compte" component={Signup} />
           <ForbidenRoute path="/mot_de_passe_oublié" component={PasswordRecovery} />
           <Route path="/aide" component={HelpCenterNavigation} />
-          <Route path="/" component={MainSwitchNavigation} />
+          <Route path="/" component={MainSwitchNavigation} /> */}
         </Switch>
       </ThemeProvider>
     </Router>
