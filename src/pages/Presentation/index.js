@@ -38,7 +38,7 @@ export default function Presentation() {
         e.preventDefault();
 
         if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-            setError("Mauvais address mail");
+            setError("Mauvais adresse mail");
             return;
         }
 
@@ -106,7 +106,7 @@ export default function Presentation() {
                                 fullWidth
                                 onChange={handleEmailChange}
                                 style={{ flex: 1, marginRight: 10 }}
-                                helperText={exist ? "C'est email est déjà enregistré." : ""}
+                                helperText={exist ? "Cette adresse mail est déjà enregistrée." : ""}
                                 error={exist ? true : false}
                             />
                             <Button
