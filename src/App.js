@@ -19,10 +19,10 @@ import PasswordRecovery from './pages/login/PasswordRecovery';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getConnectedUser());
-    dispatch(getZones());
-    dispatch(getTravaux());
-    dispatch(getServices());
+    // dispatch(getConnectedUser());
+    // dispatch(getZones());
+    // dispatch(getTravaux());
+    // dispatch(getServices());
   }, [dispatch]);
 
   return (
