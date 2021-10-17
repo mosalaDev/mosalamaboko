@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainSwitchNavigation, ProfileNavigation, HelpCenterNavigation } from './navigations';
-import AdminNavigation from './admin';
-import { Login, Signup } from './pages';
+import { Login, Presentation, Signup } from './pages';
 import { ForbidenRoute, ProtectedRoute } from './components';
 
 import { ThemeProvider } from '@material-ui/core';
@@ -32,6 +31,7 @@ function App() {
     >
       <ThemeProvider theme={theme}>
         <Switch>
+          <Route path="/" component={Presentation} />
           <ProtectedRoute
             path="/client/:username"
             component={ProfileNavigation}
@@ -39,7 +39,6 @@ function App() {
           <ForbidenRoute path="/connexion" component={Login} />
           <ForbidenRoute path="/créer_compte" component={Signup} />
           <ForbidenRoute path="/mot_de_passe_oublié" component={PasswordRecovery} />
-          <Route path="/mosalamaboko_admin" component={AdminNavigation} />
           <Route path="/aide" component={HelpCenterNavigation} />
           <Route path="/" component={MainSwitchNavigation} />
         </Switch>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { AppBar, Footer } from '../components';
 import { MainPage, DemandeDevis, Reservation, TrouverArtisan, TechnicienForm } from '../pages';
