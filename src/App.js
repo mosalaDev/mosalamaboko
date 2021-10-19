@@ -19,10 +19,10 @@ import PasswordRecovery from './pages/login/PasswordRecovery';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(getConnectedUser());
-    // dispatch(getZones());
-    // dispatch(getTravaux());
-    // dispatch(getServices());
+    dispatch(getConnectedUser());
+    dispatch(getZones());
+    dispatch(getTravaux());
+    dispatch(getServices());
   }, [dispatch]);
 
   return (
@@ -31,16 +31,16 @@ function App() {
     >
       <ThemeProvider theme={theme}>
         <Switch>
-          <Route path="/" component={Presentation} />
+          {/* <Route path="/" component={Presentation} /> */}
           <ProtectedRoute
             path="/client/:username"
             component={ProfileNavigation}
           />
-          {/* <ForbidenRoute path="/connexion" component={Login} />
+          <ForbidenRoute path="/connexion" component={Login} />
           <ForbidenRoute path="/créer_compte" component={Signup} />
           <ForbidenRoute path="/mot_de_passe_oublié" component={PasswordRecovery} />
           <Route path="/aide" component={HelpCenterNavigation} />
-          <Route path="/" component={MainSwitchNavigation} /> */}
+          <Route path="/" component={MainSwitchNavigation} />
         </Switch>
       </ThemeProvider>
     </Router>
