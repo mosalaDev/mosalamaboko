@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainSwitchNavigation, ProfileNavigation, HelpCenterNavigation } from './navigations';
 import { Login, Presentation, Signup } from './pages';
 import { ForbidenRoute, ProtectedRoute } from './components';
@@ -26,9 +26,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router
-      basename=""
-    >
+    <Router>
       <ThemeProvider theme={theme}>
         <Switch>
           {/* <Route path="/" component={Presentation} /> */}
