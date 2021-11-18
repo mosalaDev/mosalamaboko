@@ -4,19 +4,27 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainSwitchNavigation, ProfileNavigation, HelpCenterNavigation } from './navigations';
 import { Login, Presentation, Signup } from './pages';
 import { ForbidenRoute, ProtectedRoute } from './components';
-
 import { ThemeProvider } from '@material-ui/core';
-
 import theme from './theme';
-
 import { useDispatch } from 'react-redux';
 import { getServices } from './redux/reducers/service';
 import { getTravaux } from './redux/reducers/travail';
 import { getZones } from './redux/reducers/zones';
 import { getConnectedUser } from './redux/reducers/user';
 import PasswordRecovery from './pages/login/PasswordRecovery';
+import ReactGA from 'react-ga';
+
+const gaID = "UA-213364071-1"
 
 function App() {
+  ReactGA.initialize(gaID, {
+    debug: true,
+    titleCase: false,
+    gaOptions: {
+      userId: 123
+    }
+  })
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getConnectedUser());

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import { Typography, Button, makeStyles, Box, CircularProgress, Snackbar, IconButton } from '@material-ui/core';
+import { Typography, Button, makeStyles, Box, CircularProgress, Snackbar, IconButton, useTheme } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Alert from '@material-ui/lab/Alert';
+import {Facebook, Instagram, LinkedIn} from '@material-ui/icons';
 import logo from '../../assets/logo.png';
 import banner from '../../assets/small-banner.png';
 import TextInput from '../../components/Inputs/TextInput';
 import axios from '../../config/axios';
 import jwt_decode from 'jwt-decode';
+import ReactGA from 'react-ga';
+import { gaEvent } from '../../customeFunctionalities/reactGa';
 
 export default function Presentation() {
     const [email, setEmail] = useState('');
@@ -34,6 +37,10 @@ export default function Presentation() {
         setSaved(false);
     };
 
+    const handleScialClick = (name) => {
+        gaEvent(`go to ${name}`, 'social link clicked', 'link');
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -46,7 +53,10 @@ export default function Presentation() {
             return;
         }
 
+
         setLoading(true);
+
+        gaEvent("Enregistrer email", "Bouton enregistrer", "Button")
         axios
             .post('/email_registry', { email })
             .then(response => {
@@ -69,6 +79,10 @@ export default function Presentation() {
     };
 
     useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, [])
+
+    useEffect(() => {
         if (token && token !== '') {
             const dec = jwt_decode(token);
             setDecoded(dec);
@@ -81,6 +95,7 @@ export default function Presentation() {
             setExist(false);
         }
     }, [email]);
+    const theme = useTheme();
     const classes = useStyles();
     return (
         <div className={clsx(classes.root, "presentation")}>
@@ -92,20 +107,21 @@ export default function Presentation() {
                         <img src={logo} alt="mosala maboko" />
                     </div>
                     <Typography variant="body1" style={{ marginTop: 15 }}>
-                        Notre site web est en cours de construction et sera disponible dans quelques jours.<br />
+                        En cours de construction. Notre site sera disponible dans quelques jours.<br />
                         Veuillez enregistrer votre adresse email pour être notifié quand tout sera disponible.
                     </Typography>
                     <form className={classes.form}>
                         {error && <Alert severity="error" color="error" style={{ marginBottom: 10, textAlign: 'left', borderRadius: 0 }}>{error}</Alert>}
-                        <Box display="flex" justifyContent="space-between" alignItems="top">
+                        <Box justifyContent="space-between" alignItems="top">
                             <TextInput
                                 name="email"
+                                type="email"
                                 id="email"
                                 placeholder="Votre adresse mail"
                                 value={email}
                                 fullWidth
                                 onChange={handleEmailChange}
-                                style={{ flex: 1, marginRight: 10 }}
+                                style={{ flex: 1 }}
                                 helperText={exist ? "Cette adresse mail est déjà enregistrée." : ""}
                                 error={exist ? true : false}
                             />
@@ -114,6 +130,7 @@ export default function Presentation() {
                                 type="submit"
                                 color="primary"
                                 className="btn"
+                                fullWidth
                                 disableElevation
                                 style={{ marginTop: 10, padding: '8px 16px' }}
                                 onClick={handleSubmit}
@@ -123,6 +140,20 @@ export default function Presentation() {
                             </Button>
                         </Box>
                     </form>
+                    <Box p={theme.spacing(2, 0)}>
+                        <Typography>Suivez nous sur:</Typography>
+                        <Box display="flex" alignItems="center" pt={1}>
+                            <a href="https://www.linkedin.com/company/mosala-maboko" target="blank" onClick={() => handleScialClick("linkedin")} className={classes.social}>
+                                <LinkedIn htmlColor="#007bb5" fontSize="large" className={classes.socialIcon} />
+                            </a>
+                            <a href="https://facebook.com/mosalamaboko2021" target="blank" onClick={() => handleScialClick("facebook")} className={classes.social}>
+                                <Facebook htmlColor="#3b5998" fontSize="large" className={classes.socialIcon} />
+                            </a>
+                            <a href="https://www.instagram.com/mosalamaboko" target="blank" onClick={() => handleScialClick("instagram")} className={classes.social}>
+                                <Instagram htmlColor="#E4405F" fontSize="large" className={classes.socialIcon} />
+                            </a>
+                        </Box>
+                    </Box>
                 </Box>
             </div>
             <div className={classes.banner}>
@@ -166,11 +197,11 @@ const useStyles = makeStyles(theme => ({
         boxShadow: '0px 4px 40px rgba(0, 0, 0, 0.25)',
         borderRadius: 5,
         maxWidth: 400,
-        backgroundColor: '#ffffffc9',
+        backgroundColor: '#ffffff',
         backdropFilter: 'blur(10px)'
     },
     title: {
-        fontSize: '2.5rem!important',
+        fontSize: '2.2rem!important',
         fontFamily: 'Ephesis, cursive',
         color: theme.palette.secondary.main,
         fontWeight: '500!important'
@@ -181,6 +212,11 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.primary.main,
         textTransform: 'uppercase',
         fontWeight: '500!important'
+    },
+    social: {
+        "&:not(:last-child)": {
+            marginRight: 10
+        }
     },
     form: {
         width: '100%',
@@ -201,7 +237,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
         container: {
             width: '95%',
-            boxShadow: '0px 0px 4px rgb(0 0 0 / 15%)'
         },
     }
 }));
