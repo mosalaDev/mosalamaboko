@@ -37,7 +37,7 @@ function App() {
     <Router>
       <ThemeProvider theme={theme}>
         <Switch>
-          {/* <Route path="/" component={Presentation} /> */}
+          <Route path="/" component={Presentation} />
           <ProtectedRoute
             path="/client/:username"
             component={ProfileNavigation}
