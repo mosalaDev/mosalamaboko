@@ -25,13 +25,13 @@ export default function Footer() {
                         <Link to="/">Charte qualité</Link>
                     </li>
                     <li className={classes.listItem}>
-                        <Link to="/">C.G.U.S</Link>
+                        <Link to="/aide/cgus">C.G.U.S</Link>
                     </li>
                     <li className={classes.listItem}>
                         <Link to="/">Confidentialité</Link>
                     </li>
                     <li className={classes.listItem}>
-                        <Link to="/">Mentions légales</Link>
+                        <Link to="/aide/mentions_legales">Mentions légales</Link>
                     </li>
                     <li className={classes.listItem}>
                         <Link to="/">Contacts</Link>

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
-import { HelpCenterHome } from '../pages';
+import { Cgus, HelpCenterHome, MentionsLegales } from '../pages';
 import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
 import logo from '../assets/logo.png';
 import '../pages/HelpCenter/style.css';
@@ -8,15 +8,12 @@ import '../pages/HelpCenter/style.css';
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#fbfbfb',
-        minWidth: '100vw',
         minHeight: '100vh',
     },
     appBar: {
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        boxShadow: 'rgb(158 158 158 / 25%) 0px 1px 0px 0px'
+        boxShadow: 'rgb(158 158 158 / 25%) 0px 1px 0px 0px',
+        width: "100vw",
+        left: 0
     },
     toolbar: {
         justifyContent: 'space-between',
@@ -53,10 +50,11 @@ export default function HelpCenterNavigation() {
                             <img src={logo} alt="logo" />
                         </div>
                     </Link>
-
                 </Toolbar>
             </AppBar>
             <Switch>
+                <Route path={`${path}/mentions_legales`} component={MentionsLegales} />
+                <Route path={`${path}/cgus`} component={Cgus} />
                 <Route path={`${path}`} component={HelpCenterHome} />
             </Switch>
         </div>
