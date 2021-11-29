@@ -14,24 +14,21 @@ export default function DevenirTechnicien() {
                     <div className={classes.container}>
                         <div className={classes.content}>
                             <Typography className={`${classes.title} big-title`}>Devenir un technicien(ne)</Typography>
-                            <Typography variant="body1" className="second-text">
+                            <Typography variant="body1" className={classes.text}>
                                 Faites votre demande pour devenir un technicien <strong>mosala maboko</strong> et gagnez de l'argent en obtenant des marchés d'où vous vous trouvez.
                             </Typography>
                             <div className={clsx(classes.actions)}>
                                 <Link to={`/devenir_technicien`}>
                                     <Button
-                                        variant="outlined"
+                                        variant="contained"
                                         color="primary"
                                         size="large"
                                         fullWidth
                                         className="btn"
                                         disableElevation
-                                    >Créer un compte technicien</Button>
+                                    >Créer un compte technicien(e)</Button>
                                 </Link>
                             </div>
-                        </div>
-                        <div className={classes.hat}>
-                            <img src={hat} alt="hat" />
                         </div>
                     </div>
                 </div>
@@ -42,15 +39,14 @@ export default function DevenirTechnicien() {
 
 const useStyles = makeStyles(theme => ({
     title: {
-        fontWeight: '400!important',
-        color: '#283d71',
+        fontWeight: '700!important',
+        color: '#fff',
         marginBottom: '15px!important'
     },
     container: {
-        display: 'grid',
-        gridTemplateColumns: '2fr 1fr',
-        gap: 20,
+        display: 'flex',
         alignItems: 'center',
+        justifyContent: 'flex-end',
         maxWidth: 960,
         margin: 'auto',
         [theme.breakpoints.down('sm').replace('959.95px', '840px')]: {
@@ -62,22 +58,21 @@ const useStyles = makeStyles(theme => ({
     content: {
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: 900,
-        margin: 'auto',
+        maxWidth: 500,
+        color: '#fff',
+        textAlign: 'right',
+        alignItems: 'flex-end',
         [theme.breakpoints.down('sm').replace('959.95px', '840px')]: {
             alignItems: 'center',
             textAlign: 'center',
         },
     },
+    text: {
+        fontSize: "18px!important",
+        maxWidth: 430
+    },
     actions: {
         maxWidth: 256,
         marginTop: 20,
     },
-    hat: {
-        maxWidth: 311,
-        [theme.breakpoints.down('sm').replace('959.95px', '840px')]: {
-            maxWidth: 190,
-            gridRowStart: 1,
-        }
-    }
 }))

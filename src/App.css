@@ -1,5 +1,5 @@
 .main-container {
-    margin-top: 70px;
+    /* margin-top: 70px; */
 }
 
 .content {
@@ -40,7 +40,8 @@
 .inner-content {
     padding: 0 40px;
     max-width: 1200px;
-    margin: auto
+    margin: auto;
+    position: relative
 }
 
 .section-title {
@@ -250,12 +251,18 @@ label.m-checkbox {
     padding: 5px 10px 2px 10px;
 }
 
-@media (max-width: 600px) {
-    .container, .content{
-        width: 100%;
-    }
+@media (max-width: 700px) {
     .inner-content {
         padding: 0 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 30px 0
+    }
+    .container, .content{
+        width: 100%;
     }
     .big-title{
         font-size: 23px!important;

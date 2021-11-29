@@ -1,19 +1,23 @@
 .hero {
+    background-image: url(../../assets/banner_mosala_c.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #fff;
     width: 100%;
-    color: rgb(12, 12, 12);
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 20px 0!important;
+    padding: 0!important;
 }
 
 .hero .hero-content {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 0px);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .actions {
@@ -39,8 +43,9 @@
 }
 
 .hero .hero-content .title {
-    font-size: 55px;
+    font-size: 50px;
     font-weight: bold!important;
+    text-align: right;
 }
 
 .hero .hero-content .devise {
@@ -54,7 +59,7 @@
 }
 
 .help {
-    background-color: #fbfbfb;
+    background-color: #ffffff;
 }
 
 .help .inner-content {
@@ -71,7 +76,6 @@
     padding: 70px 0!important;
 }
 
-
 .service .inner-content{
     padding: 0;
 }
@@ -82,13 +86,9 @@
 }
 
 .engagement{
-    background-color: #fff;
+    background-color: #868d92;
     position: relative;
-}
-
-.engagement .actions {
-    width: 350px!important;
-    margin-top: 32px;
+    color: #fff;
 }
 
 .engagement .btn {
@@ -97,12 +97,44 @@
 }
 
 .devenir {
+    position: relative;
     background-color: #fff;
+    background-image: url(../../assets/techniciens_b.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-@media (max-width: 950px) {
-    .hero {
-        background-position: top;
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 70px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+}
+
+.animated-span {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    animation: scrollindicator 2.5s infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scrollindicator {
+    0% {
+        top: 10px;
+    }
+    100% {
+        top: 27px;
     }
 }
 
@@ -114,7 +146,6 @@
     .hero .hero-content{
         width: 100%;
         height: 63vh;
-        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
         text-align: center;
@@ -130,8 +161,29 @@
     }
 }
 @media (max-width: 600px) {
+    .devenir,
+    .hero {
+        background-position: revert;
+    }
+    .devenir::before,
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        background-color: #00000054;
+    }
+    .hero::before {
+        height: calc(100vh - 30px);
+    }
+    .hero .hero-content {
+        min-height: calc(100vh - 30px);
+    }
     .hero .hero-content .title {
-        font-size: 25px;
+        font-size: 30px;
+        text-align: center;
     }
     .hero .hero-content .devise {
         font-size: 17px;
@@ -152,5 +204,8 @@
     }
     .hero-image {
         max-width: 170px;
+    }
+    .help {
+        background-color: #fbfbfb;
     }
 }

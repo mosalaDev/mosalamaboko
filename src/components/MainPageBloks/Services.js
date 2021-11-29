@@ -1,69 +1,10 @@
 import React from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
-import { ArrowForwardIos, ArrowBackIos } from '@material-ui/icons';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick';
+import other from '../../assets/repair_tool.png';
 
 import { departements as services } from '../../customeFunctionalities/data';
 
-const NextArrow = (props) => {
-    const { style, onClick } = props;
-    const classes = useStyles();
-    return (
-        <div
-            className={`${classes.carButton} ${classes.nextArrow}`}
-            style={{ ...style, display: "block" }}
-            onClick={onClick}>
-            <ArrowForwardIos fontSize="large" color="inherit" />
-        </div>
-    );
-};
-
-const PrevArrow = (props) => {
-    const { style, onClick } = props;
-    const classes = useStyles();
-    return (
-        <div
-            className={`${classes.carButton} ${classes.prevArrow}`}
-            style={{ ...style, display: "block" }}
-            onClick={onClick}>
-            <ArrowBackIos fontSize="large" color="inherit" />
-        </div>
-    );
-};
-
 export default function Services() {
-    const carousselSettings = {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        responsive: [
-            {
-                breakpoint: 1150,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                }
-            },
-            {
-                breakpoint: 800,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 500,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-        ]
-    };
     const classes = useStyles();
     return (
         <div className={classes.container}>
@@ -76,20 +17,28 @@ export default function Services() {
                             </div>
                         </div>
                         <div className={classes.serviceList}>
-                            <Slider {...carousselSettings} nextArrow={<NextArrow />} prevArrow={<PrevArrow />}>
-                                {services.map((service, index) => (
-                                    <div className={classes.serviceCard} key={`${service.name}_${index}`}>
-                                        <div className={classes.cardHeader}>
-                                            <div className={classes.imageContainer}>
-                                                <img src={service.image} alt={service.name} className={classes.image} />
-                                            </div>
-                                        </div>
-                                        <div className={classes.cardBody}>
-                                            <Typography variant="body1" style={{ fontSize: 17 }}>{service.name}</Typography>
+                            {services.map((service, index) => (
+                                <div className={classes.serviceCard} key={`${service.name}_${index}`}>
+                                    <div className={classes.cardHeader}>
+                                        <div className={classes.imageContainer}>
+                                            <img src={service.image} alt={service.name} className={classes.image} />
                                         </div>
                                     </div>
-                                ))}
-                            </Slider>
+                                    <div className={classes.cardBody}>
+                                        <Typography variant="body1" style={{ fontSize: 17 }}>{service.name}</Typography>
+                                    </div>
+                                </div>
+                            ))}
+                             <div className={classes.serviceCard}>
+                                    <div className={classes.cardHeader}>
+                                        <div className={classes.imageContainer} style={{backgroundColor: '#484848'}}>
+                                            <img src={other} alt="autres services" className={classes.image} />
+                                        </div>
+                                    </div>
+                                    <div className={classes.cardBody}>
+                                        <Typography variant="body1" style={{ fontSize: 17 }}>Autres services</Typography>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -120,33 +69,39 @@ const useStyles = makeStyles(theme => ({
         marginRight: 20,
     },
     serviceList: {
-        borderTop: '1px solid #bdbcbc96',
-        borderBottom: '1px solid #bdbcbc96',
+        display: 'grid',
+        gridTemplateColumns: "1fr 1fr 1fr 1fr",
+        alignContents: 'center',
+        [theme.breakpoints.down('sm')]: {
+			gridTemplateColumns: "1fr 1fr",
+			justifyContent: 'center'
+		}
     },
     serviceCard: {
         flex: 1,
         textAlign: 'center',
-        width: 200,
-        minWidth: 200,
-        height: 270,
         padding: '20px 10px',
-        borderRight: '1px solid #bdbcbc96',
         display: 'flex!important',
         flexDirection: 'column',
-        justifyContent: 'center'
+        alignItems: 'center',
     },
     cardHeader: {
         display: 'flex',
         justifyContent: 'center',
     },
     imageContainer: {
-        width: 110,
-        height: 110,
+        width: 90,
+        height: 90,
         borderRadius: '50%',
         overflow: 'hidden',
+        [theme.breakpoints.down('xs')]: {
+            width: 50,
+            height: 50,
+        }
     },
     cardBody: {
         marginTop: 10,
+        maxWidth: 160,
         '& *': {
             fontWeight: '700!important',
             color: 'inherit',

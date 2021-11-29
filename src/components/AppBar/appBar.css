@@ -1,7 +1,7 @@
 .appbar {
     width: 100%;
-    background-color: #ffffff;
-    backdrop-filter: blur(20px);
+    /* background-color: #ffffff;
+    backdrop-filter: blur(20px); */
 }
 
 .inner-appbar {
@@ -26,6 +26,7 @@
     height: 60px;
 }
 
+.logo-text,
 .logo-string {
     font-size: 15px!important;
     font-weight: 700!important;
@@ -100,6 +101,20 @@
 .connexion .reserv {
     flex: 1;
     margin-right: 10px;
+    background-color: #fff;
+}
+
+.connexion .reserv:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.connexion .phone {
+    margin-right: 20px;
+}
+
+.connexion .phone button {
+    background-color: #fff;
+    margin-right: 5px
 }
 
 .connexion .btn {
@@ -142,6 +157,13 @@
     }
     .connexion .reserv {
         margin-right: 0;
+    }
+    .logo .logo-image {
+        width: 70px;
+        height: 50px
+    }
+    .top-tel {
+        font-size: 13px!important;
     }
 }
 @media (max-width: 900px) {

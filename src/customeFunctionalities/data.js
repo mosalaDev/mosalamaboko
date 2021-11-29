@@ -16,6 +16,12 @@ import designBanner from '../assets/designer.png';
 import conditionerBanner from '../assets/conditioner.png';
 import tileBanner from '../assets/tile.png';
 
+import customerService from '../assets/customer_service.png';
+import tarif from '../assets/price_list.png';
+import hour from '../assets/24h.png';
+import waranty from '../assets/waranty.png';
+import premium from '../assets/premium_badge.png';
+
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -219,7 +225,7 @@ export const departements = [
         services: []
     },
     {
-        name: 'Montage/demontage de meubles',
+        name: 'Montage / demontage de meubles',
         image: montage,
         artisan: 'monteur des meubles',
         detail: '',
@@ -525,3 +531,26 @@ export const cancelationReasons = [
     "Le technicien n'est jamais venu",
     "J'ai trouvé une autre solution à mon problème"
 ];
+
+export const engagements = [
+    {
+        image: hour,
+        text: ["Service 7j/7", "intervention 24h/24"]
+    },
+    {
+        image: premium,
+        text: ["Des techniciens", "qualifiés et fiables"]
+    },
+    {
+        image: waranty,
+        text: ["Intervation couverte", "par une assurance"]
+    },
+    {
+        image: tarif,
+        text: ["Une tarification", "claire"]
+    },
+    {
+        image: customerService,
+        text: ["Service après-vente", "disponible"]
+    },
+]

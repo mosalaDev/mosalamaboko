@@ -1,53 +1,83 @@
-import React from 'react';
-import { makeStyles, Typography, Button } from '@material-ui/core';
-import './styles.css';
+import React from "react";
+import { makeStyles, Typography } from "@material-ui/core";
+import "./styles.css";
+import { engagements } from "../../customeFunctionalities/data";
 
-export default function Engagements({ handleAskReservation }) {
-    const classes = useStyles();
-    return (
-        <div className="container">
-            <div className="inner-content">
-                <div className={classes.container}>
-                    <div className={classes.content}>
-                        <Typography className={`${classes.title} big-title`}>Notre engagement</Typography>
-                        <Typography variant="body1" className="second-text">Pour un souci technique, la confiance est primordiale : un travail bien fait, manquant un retour négatif, même les jours avenirs. De ce fait, mosala maboko s’engage à mettre à la disposition du grand public des technicien(ne)s qualifié(e)s.</Typography>
-                        <div className="actions">
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                size="large"
-                                fullWidth
-                                className="btn hero-btn"
-                                onClick={handleAskReservation}
-                            >Trouvez un technicien</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+export default function Engagements() {
+	const classes = useStyles();
+	return (
+		<div className="container">
+			<div className="inner-content">
+				<div className={classes.container}>
+					<div className={classes.content}>
+						{engagements.map((engagement) => (
+							<div className={classes.card}>
+								<div className={classes.imageContainer}>
+									<img
+										src={engagement.image}
+										alt={engagement.text}
+									/>
+								</div>
+								<div className={classes.details}>
+									<Typography color="inherit">
+										{engagement.text.map(t => (
+                                            <span>{t}</span>
+                                        ))}
+									</Typography>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
-const useStyles = makeStyles({
-    container: {
-        minHeight: '10vh',
-        display: 'flex',
-        alignItems: 'center',
-        color: '#444',
-    },
-    content: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 10,
-        textAlign: 'center',
-        maxWidth: 900,
-        margin: 'auto'
-    },
-    title: {
-        marginBottom: 15,
-        color: '#283d71',
-        fontWeight: '400!important'
-    }
-});
+const useStyles = makeStyles(theme => ({
+	container: {
+		minHeight: "10vh",
+		display: "flex",
+		alignItems: "center",
+	},
+	content: {
+        width: '100%',
+		display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+        gap: 20,
+		textAlign: "center",
+		[theme.breakpoints.down('sm')]: {
+			gridTemplateColumns: "1fr 1fr 1fr",
+			justifyContent: 'center'
+		}
+	},
+	card: {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+		flex: 1,
+        width: '100%',
+		"&:not(:last-child)": {
+			marginRight: 10,
+		},
+	},
+	imageContainer: {
+		"& > img": {
+			height: 70,
+			width: 60,
+            marginBottom: 10,
+			[theme.breakpoints.down('xs')]: {
+				height: 40,
+				width: 35,
+			}
+		},
+	},
+	details: {
+		"& > p span": {
+			fontSize: 14,
+            display: 'block',
+            color: '#fff',
+            lineHeight: 1.1,
+		},
+	},
+}));

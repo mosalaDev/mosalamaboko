@@ -4,12 +4,14 @@ import { AppBar, Footer } from '../components';
 import { MainPage, DemandeDevis, Reservation, TrouverArtisan, TechnicienForm } from '../pages';
 
 export default function MainSwitchNavigation() {
+    const isHome = window.location.pathname === "/";
+
     return (
         <>
             <div className="topbar">
                 <AppBar />
             </div>
-            <div className="main-container">
+            <div className="main-container" style={{paddingTop: isHome ? 0 : 70}}>
                 <Switch>
                     <Route path="/devenir_technicien" component={TechnicienForm} />
                     <Route
