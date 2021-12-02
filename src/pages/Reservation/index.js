@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './reservation.css';
 import { useSelector, useDispatch } from 'react-redux';
 import logo from '../../assets/logo.png';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, useParams } from 'react-router-dom';
 import { makeStyles, useMediaQuery, useTheme, IconButton, Typography, Button, FormGroup, FormControlLabel, Radio, Checkbox, CircularProgress, LinearProgress, Fade } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -25,6 +25,7 @@ import { getLocation } from '../../customeFunctionalities/helpers';
 import moment from 'moment';
 
 const Reservation = () => {
+    const {serviceId} = useParams();
     const history = useHistory();
     const user = useSelector(getUser);
     const [step, setStep] = useState(0);
@@ -129,19 +130,23 @@ const Reservation = () => {
             });
     };
 
-    const handleSelectService = (e) => {
-        const checked = e.target.checked;
-        const service = services.find(s => s.id === e.target.value);
+    const changeService = (serviceId) => {
+        const service = services.find(s => s.id.toString() === serviceId);
         let gammes = [];
 
+        setSelectedService(service ? service : {});
+        gammes = service ? service.gamme_travaux : [];
+
+        setGammes(gammes);
+    }
+
+    const handleSelectService = (e) => {
+        const checked = e.target.checked;        
         if (!checked) {
             setSelectedService({});
         } else {
-            setSelectedService(service);
-            gammes = service.gamme_travaux;
+            changeService(e.target.value);
         }
-
-        setGammes(gammes);
     };
 
     const handleSetSelectGamme = (gamme) => {
@@ -271,6 +276,13 @@ const Reservation = () => {
             setErrors(errors => ({ ...errors, works: null }));
         }
     };
+    
+    useEffect(() => {
+        if (serviceId && services.length > 0) {
+            changeService(serviceId);
+            goToNextStep();
+        }
+    }, [serviceId, services]);
 
     useEffect(() => {
         if (fBRef.current) {

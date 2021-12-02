@@ -57,37 +57,37 @@ export const useGetServices = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        let dpt = { image: "" };
+        let dpt = { image: "", conlor: "" };
         const dpts = [];
         if (data instanceof Array) {
             data.forEach(d => {
                 switch (d.nom_service.toLowerCase()) {
                     case "carrelage":
-                        dpt = { image: carrelage, banner: tileBanner, ...d };
+                        dpt = { image: carrelage, color: "#406580", banner: tileBanner, ...d };
                         dpts.push(dpt);
                         break;
                     case "fixation d'objets":
-                        dpt = { image: fixing, banner: furnitureFixerBanner, ...d };
+                        dpt = { image: fixing, color: "#C59900", banner: furnitureFixerBanner, ...d };
                         dpts.push(dpt);
                         break;
                     case "peinture décoration-ébénisterie":
-                        dpt = { image: peinture, banner: designBanner, ...d };
+                        dpt = { image: peinture, color: "#CB7878", banner: designBanner, ...d };
                         dpts.push(dpt);
                         break;
                     case "froid et climatisation":
-                        dpt = { image: climatisation, banner: conditionerBanner, ...d };
+                        dpt = { image: climatisation, color: "#367CBD", banner: conditionerBanner, ...d };
                         dpts.push(dpt);
                         break;
                     case "électricité":
-                        dpt = { image: electricity, banner: electricityBanner, ...d };
+                        dpt = { image: electricity, color: "#FF7A00", banner: electricityBanner, ...d };
                         dpts.push(dpt);
                         break;
                     case "montage et démontage de meubles":
-                        dpt = { image: montage, banner: furnitureFixerBanner, ...d };
+                        dpt = { image: montage, color: "#BC6600", banner: furnitureFixerBanner, ...d };
                         dpts.push(dpt);
                         break;
                     case "plomberie et cuisine":
-                        dpt = { image: plumbery, banner: plomberyBanner, ...d };
+                        dpt = { image: plumbery, color: "#2697FF", banner: plomberyBanner, ...d };
                         dpts.push(dpt);
                         break;
                     default:

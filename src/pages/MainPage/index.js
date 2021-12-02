@@ -69,11 +69,9 @@ export default function MainPage() {
 			<section className="content service">
 				<Services />
 			</section>
-			<section className="content">
-				<div className="container">
-					<div className="inner-content">
-						<UsualWorks />
-					</div>
+			<section className="content usualy-demand">
+				<div className="inner-content">
+					<UsualWorks />
 				</div>
 			</section>
 			<section className="content devenir">

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         backgroundColor: theme.palette.common.white,
-        borderRadius: 0,
+        borderRadius: 7,
         boxShadow: theme.shadows[3],
         padding: theme.spacing(2, 3),
         maxHeight: '100vh',

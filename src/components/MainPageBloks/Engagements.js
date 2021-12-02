@@ -10,8 +10,8 @@ export default function Engagements() {
 			<div className="inner-content">
 				<div className={classes.container}>
 					<div className={classes.content}>
-						{engagements.map((engagement) => (
-							<div className={classes.card}>
+						{engagements.map((engagement, i) => (
+							<div key={`${i}`} className={classes.card}>
 								<div className={classes.imageContainer}>
 									<img
 										src={engagement.image}
@@ -21,7 +21,7 @@ export default function Engagements() {
 								<div className={classes.details}>
 									<Typography color="inherit">
 										{engagement.text.map(t => (
-                                            <span>{t}</span>
+                                            <span key={t}>{t}</span>
                                         ))}
 									</Typography>
 								</div>

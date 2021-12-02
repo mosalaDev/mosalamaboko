@@ -25,9 +25,19 @@ export default function MainSwitchNavigation() {
                         component={DemandeDevis}
                     />
                     <Route
+                        path="/reservation/:serviceId"
+                        exact
+                        component={Reservation}
+                    />
+                    <Route
                         path="/reservation"
                         exact
                         component={Reservation}
+                    />
+                    <Route
+                        path="/urgence/:service/:gammeId"
+                        exact
+                        component={TrouverArtisan}
                     />
                     <Route
                         path="/urgence/:service"

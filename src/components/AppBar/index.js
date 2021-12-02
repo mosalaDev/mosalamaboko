@@ -116,7 +116,7 @@ export default function AppBar() {
 							fullWidth
 							onClick={goToReservation}
 						>
-							Reserver<Hidden xsDown> une prestation</Hidden>
+							Réserver<Hidden xsDown> une prestation</Hidden>
 						</Button>
 						<Hidden xsDown>
 							{isConnected ? (
@@ -286,7 +286,7 @@ export default function AppBar() {
 								onClick={goToReservation}
 								style={{ marginBottom: 10 }}
 							>
-								Reserver une prestation
+								Réserver une prestation
 							</Button>
 						</Box>
 						<Box

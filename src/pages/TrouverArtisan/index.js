@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import './trouverArtisan.css';
@@ -21,7 +21,7 @@ import { getUser } from '../../redux/reducers/user';
 export default function TrouverArtisan() {
     const history = useHistory();
     const user = useSelector(getUser);
-    const { service } = useParams();
+    const { service, gammeId } = useParams();
     const [chosen, setChosen] = useState(false);
     const [chosenService, setChosenService] = useState(null);
     const [step, setStep] = useState(0);
@@ -108,11 +108,11 @@ export default function TrouverArtisan() {
         setShowCancelMessage(true);
     };
 
-    const handleSetSelectGamme = (gamme) => {
+    const handleSetSelectGamme = useCallback((gamme) => {
         setSelectedGamme(gamme);
         setWorks(gamme.travaux);
         setStep(step + 1);
-    };
+    }, [step]);
 
     const goToNextStep = () => {
         console.log(step);
@@ -236,6 +236,15 @@ export default function TrouverArtisan() {
     const handleSelectDate = (date) => {
         setDate(date);
     };
+
+    useEffect(() => {
+        if (step === 0) {
+            const g = gammes.find(gamme => gamme.id === gammeId);
+            if (g) {
+                handleSetSelectGamme(g);
+            }
+        }
+    }, [gammeId, gammes, handleSetSelectGamme, step]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
