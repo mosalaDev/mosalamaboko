@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom';
 import './style.css';
 import Part1 from './Part1';
 import Part2 from './Part2';
 import { Signup } from '..';
+import ReactGA from 'react-ga';
 
 export default function DevenirTechnicien() {
     const { path } = useRouteMatch();
 
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, [])
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);

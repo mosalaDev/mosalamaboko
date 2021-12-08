@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import './signUp.css';
 import logo from '../../assets/logo.png';
 import { Typography, Button } from '@material-ui/core';
 import { PersonOutline, History, FeedbackOutlined, FlightTakeoff } from '@material-ui/icons';
 import { SignupForm } from '../../components';
+import ReactGA from 'react-ga';
 
 export default function Signup() {
     const { url } = useRouteMatch();
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, [])
     return (
         <div className="signup">
             <div className="header">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./mainPage.css";
 import { Button } from "@material-ui/core";
 import {
@@ -13,6 +13,7 @@ import {
 
 import { Typography } from "@material-ui/core";
 import banner from "../../assets/small-banner.png";
+import ReactGA from 'react-ga';
 
 export default function MainPage() {
 	const [open, setOpen] = useState(false);
@@ -27,6 +28,10 @@ export default function MainPage() {
 	const handleAskReservation = () => {
 		handleOpen();
 	};
+
+	useEffect(() => {
+		ReactGA.pageview('/');
+	}, []);
 	return (
 		<div className="home">
 			<section className="content hero">

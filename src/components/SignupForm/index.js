@@ -53,18 +53,17 @@ const SignupForm = ({ successCallback }) => {
         }
 
         setLoading(true);
-        console.log(valid);
 
         const data = { tel, password, nom, prenom, email, sexe };
 
         axios
             .post('/user/signup', data)
             .then(res => {
+                setServerError(null);
                 if (res.data.code) {
                     setServerError(res.data.message);
                     window.scrollTo(0, 0);
                 } else {
-                    setServerError(null);
                     if (typeof successCallback === 'function') {
                         successCallback(password, tel);
                     } else {

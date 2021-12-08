@@ -492,7 +492,7 @@ export const questions = [
 export const frequentQuestions = [
     {
         q: "Qui est Mosala maboko ?",
-        r: [`Mosola maboko est une strat-up lancée par la société Gifted hands technology en sigle GHT, spécialisé dans le recrutement, l'évaluation, des techniciens qualifiés et mettant à votre disposition, des hommes et des femmes capables, fiables travaillant dans le domaine de l'artisanat et de la construction, pour l'accomplissement de vos différents travaux   afin de leur retrouver rapidement et facilement pour des travaux de dépannages, réparations et réalisations.`]
+        r: [`Mosola maboko est une stratup lancée par la société Gifted hands technology en sigle GHT, spécialisée dans le recrutement, l'évaluation, des techniciens qualifiés et mettant à votre disposition, des hommes et des femmes capables, fiables travaillant dans le domaine de l'artisanat et de la construction, pour l'accomplissement de vos différents travaux   afin de leur retrouver rapidement et facilement pour des travaux de dépannages, réparations et réalisations.`]
     },
     {
         q: "Comment effectuer une réservation ?",

@@ -21,7 +21,7 @@ function App() {
     debug: true,
     titleCase: false,
     gaOptions: {
-      userId: 123
+      userId: 123,
     }
   })
 
@@ -32,6 +32,10 @@ function App() {
     dispatch(getTravaux());
     dispatch(getServices());
   }, [dispatch]);
+
+  useEffect(() => {
+      ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
 
   return (
     <Router>

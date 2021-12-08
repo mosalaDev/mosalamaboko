@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, CircularProgress, Typography } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -27,7 +27,6 @@ const LoginForm = (props) => {
         if (canSubmit) {
             dispatch(loginUser({ username, password })).then(() => {
                 dispatch(actions.resetStatus());
-                document.cookie = "aid = monCookie ; httpOnly";
             });
         }
     };

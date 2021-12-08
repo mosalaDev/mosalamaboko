@@ -17,8 +17,9 @@ const initialState = resEntity.getInitialState({
 
 export const createReservation = createAsyncThunk(
     'create reservation',
-    async (data) => {
-        const response = await axios.post('/reservation', data);
+    async (data, token) => {
+        const t = token ? token : localStorage.getItem('user') ? localStorage.getItem('user') : null;
+        const response = await axios.post('/reservation', data, { headers: {Authorization: "Bearer " + t}});
         return response.data;
     }
 );

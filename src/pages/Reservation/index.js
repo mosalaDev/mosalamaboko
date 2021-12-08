@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './reservation.css';
 import { useSelector, useDispatch } from 'react-redux';
 import logo from '../../assets/logo.png';
@@ -15,9 +15,10 @@ import TextInput from '../../components/Inputs/TextInput';
 import Switch from '../../components/Inputs/switch';
 import { DatePicker } from '../../components/Inputs/DateTimePicker';
 import { communes, useGetServices } from '../../customeFunctionalities/data';
+import ReactGA from 'react-ga';
 
 import { selectAll as selectAllZones } from '../../redux/reducers/zones';
-import { getUser } from '../../redux/reducers/user';
+import { getToken, getUser } from '../../redux/reducers/user';
 import { createReservation, getReqStatus } from '../../redux/reducers/reservations';
 import { validateService, validateAddress, validateWorks, validateDateAndTime } from '../../customeFunctionalities/validators';
 import { getLocation } from '../../customeFunctionalities/helpers';
@@ -104,6 +105,7 @@ const Reservation = () => {
         setShowCancelMessage(true);
     };
 
+    const token = useSelector(getToken);
     const dispatch = useDispatch();
     const saving = useSelector(getReqStatus);
     const handleSubmit = () => {
@@ -120,7 +122,7 @@ const Reservation = () => {
 
         const data = { gravite, date_w, commune, quartier, avenue, num, position, zone: zone.id, service: selectedService.id, travaux: selectedWorks, autresTravaux };
 
-        dispatch(createReservation(data))
+        dispatch(createReservation(data, token))
             .then(res => {
                 const d = res.payload;
                 if (!d.code) {
@@ -130,7 +132,7 @@ const Reservation = () => {
             });
     };
 
-    const changeService = (serviceId) => {
+    const changeService = useCallback((serviceId) => {
         const service = services.find(s => s.id.toString() === serviceId);
         let gammes = [];
 
@@ -138,7 +140,7 @@ const Reservation = () => {
         gammes = service ? service.gamme_travaux : [];
 
         setGammes(gammes);
-    }
+    })
 
     const handleSelectService = (e) => {
         const checked = e.target.checked;        
@@ -201,7 +203,7 @@ const Reservation = () => {
         setDate(date);
     };
 
-    const goToNextStep = () => {
+    const goToNextStep = useCallback(() => {
         if (step > 5) {
             return;
         }
@@ -252,7 +254,7 @@ const Reservation = () => {
         if (valid) {
             setStep(step + 1);
         }
-    };
+    });
 
 
     const goToPreviousStep = () => {
@@ -276,13 +278,17 @@ const Reservation = () => {
             setErrors(errors => ({ ...errors, works: null }));
         }
     };
+
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, [])
     
     useEffect(() => {
         if (serviceId && services.length > 0) {
             changeService(serviceId);
             goToNextStep();
         }
-    }, [serviceId, services]);
+    }, [changeService, goToNextStep, serviceId, services]);
 
     useEffect(() => {
         if (fBRef.current) {

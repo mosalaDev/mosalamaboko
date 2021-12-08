@@ -19,6 +19,8 @@ import UserMenu from "./UserMenu";
 import { Phone, Menu } from "@material-ui/icons";
 import Close from "@material-ui/icons/Close";
 import { logoutUser, isLogingOut } from "../../redux/reducers/user";
+import { GAEventButton } from "..";
+import ReactGA from 'react-ga';
 
 export default function AppBar() {
 	const [shadow, setShadow] = useState(false);
@@ -29,6 +31,13 @@ export default function AppBar() {
 	const isHome = window.location.pathname === "/";
 	const loading = useSelector(isLogingOut);
 	const matches = useMediaQuery("(max-width:600px)");
+
+	const handleTelClick = () => {
+		ReactGA.event({
+            category: 'téléphone',
+            action: 'Appel téléphonique',
+        });
+	}
 
 	const goToReservation = () => {
 		history.push("/reservation");
@@ -89,48 +98,57 @@ export default function AppBar() {
 						</div>
 					</Link>
 					<div className="connexion">
-						<Box
-							display="flex"
-							alignItems="center"
-							className="phone"
-						>
-							<Hidden xsDown>
-								<IconButton size="small" style={{ padding: 5 }}>
-									<Phone fontSize="small" />
-								</IconButton>
-							</Hidden>
-							<Typography
-								style={{
-									color: shadow || !isHome ? "#000" : "#fff",
-									fontWeight: 500,
-								}}
-								className="top-tel"
+						<a href="tel:+243906054917">
+							<Box
+								display="flex"
+								alignItems="center"
+								className="phone"
+								onClick={handleTelClick}
 							>
-								+243 906 054 917
-							</Typography>
-						</Box>
-						<Button
+								<Hidden xsDown>
+									<IconButton size="small" style={{ padding: 5 }}>
+										<Phone fontSize="small" />
+									</IconButton>
+								</Hidden>
+								<Typography
+									style={{
+										color: shadow || !isHome ? "#000" : "#fff",
+										fontWeight: 500,
+									}}
+									className="top-tel"
+								>
+									+243 906 054 917
+								</Typography>
+							</Box>
+						</a>
+						<GAEventButton
 							className="btn reserv"
 							variant="outlined"
 							color="primary"
 							fullWidth
 							onClick={goToReservation}
+							action="Réserver un service"
+							label="Réservation de service"
+							category="Réservation"
 						>
 							Réserver<Hidden xsDown> une prestation</Hidden>
-						</Button>
+						</GAEventButton>
 						<Hidden xsDown>
 							{isConnected ? (
 								<UserMenu user={user} />
 							) : (
-								<Button
+								<GAEventButton
 									className="btn"
 									variant={matches ? "text" : "contained"}
 									disableElevation
 									color="secondary"
 									onClick={goToConnection}
+									category="Utilisateur"
+									action="Connexion"
+									label="Connection au compte utilisateur"
 								>
 									Connexion
-								</Button>
+								</GAEventButton>
 							)}
 						</Hidden>
 						<Hidden smUp>
@@ -252,21 +270,24 @@ export default function AppBar() {
 										Connexion
 									</Button>
 									<Link to={`/créer_compte`}>
-										<Button
+										<GAEventButton
 											className="btn"
 											variant="text"
 											disableElevation
 											color="default"
 											style={{ marginBottom: 15 }}
 											onClick={buttonClick}
+											category="utilisateur"
+											action="Création de compte"
+											label="Création d'un compte utilisateur"
 										>
 											Créer un compte
-										</Button>
+										</GAEventButton>
 									</Link>
 								</>
 							)}
 							<Link to={`/devenir_technicien`}>
-								<Button
+								<GAEventButton
 									className="btn reserv"
 									variant="text"
 									color="default"
@@ -274,20 +295,26 @@ export default function AppBar() {
 									fullWidth
 									style={{ marginBottom: 15 }}
 									onClick={buttonClick}
+									category="technicien"
+									action="Devenir un technicien"
+									label="Création du compte technicien: Menu"
 								>
 									Devenir un(e) technicien(e)
-								</Button>
+								</GAEventButton>
 							</Link>
-							<Button
+							<GAEventButton
 								className="btn reserv"
 								variant="contained"
 								color="primary"
 								disableElevation
 								onClick={goToReservation}
 								style={{ marginBottom: 10 }}
+								action="Réserver un service"
+								label="Réservation de service"
+								category="Réservation"
 							>
 								Réserver une prestation
-							</Button>
+							</GAEventButton>
 						</Box>
 						<Box
 							borderTop="1px solid #eaeaea"

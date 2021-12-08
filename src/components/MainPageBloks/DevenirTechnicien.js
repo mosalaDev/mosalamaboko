@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { makeStyles, Typography, Button } from '@material-ui/core';
 import hat from '../../assets/hat.svg';
+import { GAEventButton } from '..';
 
 export default function DevenirTechnicien() {
     const { url } = useRouteMatch();
@@ -19,14 +20,17 @@ export default function DevenirTechnicien() {
                             </Typography>
                             <div className={clsx(classes.actions)}>
                                 <Link to={`/devenir_technicien`}>
-                                    <Button
+                                    <GAEventButton
                                         variant="contained"
                                         color="primary"
                                         size="large"
                                         fullWidth
                                         className="btn"
                                         disableElevation
-                                    >Créer un compte technicien(e)</Button>
+                                        category="technicien"
+                                        action="Devenir un technicien"
+                                        label="Création du compte technicien"
+                                    >Créer un compte technicien(e)</GAEventButton>
                                 </Link>
                             </div>
                         </div>

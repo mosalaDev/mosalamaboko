@@ -102,7 +102,7 @@ export default function UserAccount(props) {
                                         marginTop: 20
                                     }}
                                 >
-                                    Céer un nouveau compte
+                                    Créer un nouveau compte
                                 </Button>
                                 <Button
                                     className={`btn`}

@@ -164,3 +164,4 @@ export const getConnectionState = state => state.user.connected;
 export const getUser = state => state.user.user;
 export const isUpdating = state => state.user.updating;
 export const isLogingOut = state => state.user.disconnecting;
+export const getToken = state => state.user.token;

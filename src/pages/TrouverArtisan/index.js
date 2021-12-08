@@ -10,13 +10,14 @@ import { CustomeModal, AppMessageModal } from '../../components';
 import { DatePicker } from '../../components/Inputs/DateTimePicker';
 import Select from '../../components/Inputs/Select';
 import { UserAccount } from '../../components';
+import ReactGA from 'react-ga';
 
 import axios from '../../config/axios';
 import { useGetUrgentService, communes } from '../../customeFunctionalities/data';
 import { getLocation } from '../../customeFunctionalities/helpers';
 import { validateAddress, validateDateAndTime, validateWorks, validateUserCoords } from '../../customeFunctionalities/validators';
 import { selectAll as selectAllZones } from '../../redux/reducers/zones';
-import { getUser } from '../../redux/reducers/user';
+import { getToken, getUser } from '../../redux/reducers/user';
 
 export default function TrouverArtisan() {
     const history = useHistory();
@@ -81,7 +82,8 @@ export default function TrouverArtisan() {
             color: 'default'
         },
     ];
-
+    
+    const token = useSelector(getToken);
     const handleSubmit = () => {
         const com = communes.find(c => c.name.toLowerCase() === commune.toLowerCase());
         const zone = zones.find(z => z.nom.toLowerCase() === com.district.toLowerCase());
@@ -91,7 +93,8 @@ export default function TrouverArtisan() {
         const data = { gravite: 'urgence', nom, prenom, sexe, tel, email, date_w, commune, quartier, avenue, num, position, zone: zone.id, service: chosenService.id, travaux: selectedWorks, details };
 
         setSaving(true);
-        axios.post('/reservation', data)
+        const t = token ? token : localStorage.getItem('user') ? localStorage.getItem('user') : null;
+        axios.post('/reservation', data, {headers: {Authorization: "Bearer " + t}})
             .then(res => {
                 const data = res.data;
                 if (!data.code) {
@@ -236,6 +239,10 @@ export default function TrouverArtisan() {
     const handleSelectDate = (date) => {
         setDate(date);
     };
+
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, [])
 
     useEffect(() => {
         if (step === 0) {

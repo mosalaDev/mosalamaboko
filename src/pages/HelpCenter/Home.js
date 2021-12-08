@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import clsx from 'clsx';
 import { Typography, makeStyles } from '@material-ui/core';
 import TextInput from '../../components/Inputs/TextInput';
 import { frequentQuestions, questions } from '../../customeFunctionalities/data';
 import { Link, useRouteMatch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 export default function HelpCenter() {
     const { url } = useRouteMatch();
     const classes = useStyles();
+
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, [])
     return (
         <div className="page-root">
             <div className={classes.header}>
