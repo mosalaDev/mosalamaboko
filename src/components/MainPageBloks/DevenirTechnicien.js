@@ -16,7 +16,7 @@ export default function DevenirTechnicien() {
                         <div className={classes.content}>
                             <Typography className={`${classes.title} big-title`}>Devenir un technicien(ne)</Typography>
                             <Typography variant="body1" className={classes.text}>
-                                Faites votre demande pour devenir un technicien <strong>mosala maboko</strong> et gagnez de l'argent en obtenant des marchés d'où vous vous trouvez.
+                                Faites votre demande pour devenir un(e) technicien(e) <strong>mosala maboko</strong> et gagner de l'argent en obtenant des marchés d'où vous vous trouvez.
                             </Typography>
                             <div className={clsx(classes.actions)}>
                                 <Link to={`/devenir_technicien`}>

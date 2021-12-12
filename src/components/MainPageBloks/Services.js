@@ -35,7 +35,7 @@ export default function Services() {
 											className={`${classes.exp} second-text`}
 										>
 											Nous mettons à votre disposition des
-											techniciens spécialisés dans les
+											technicien(e)s spécialisé(e)s dans les
 											domaines ci-dessous.
 										</Typography>
 									</div>

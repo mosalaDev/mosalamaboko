@@ -293,19 +293,19 @@ export const helpContents = [
         badge: '1',
         image: describeNeed,
         title: 'Mon problème',
-        body: 'Envoyez-nous ce dont vous avez besoin, puis fixez la date et l’heure qui vous conviennent pour vos travaux.'
+        body: 'Envoyez-nous ce dont vous avez besoin, puis fixez la date et l’heure qui vous convient pour vos travaux.'
     },
     {
         badge: '2',
         image: selectArtisan,
         title: 'Ma solution',
-        body: 'Votre demande effectuée soit le devis approuvé, nous envoyons le meilleur technicien contenu de vos besoins, en tenant compte de sa spécialité et du lieu d\'intervation.'
+        body: 'Votre demande effectuée soit le devis approuvé, nous envoyons le(la) meilleur(e) technicien(e) compte tenu de vos besoins, en tenant compte de sa spécialité et du lieu d\'intervention.'
     },
     {
         badge: '3',
         image: conclude,
         title: 'Ma satisfaction ',
-        body: 'Nos techniciens mettent en avant leur travail. Vous avez ainsi une assurance supplémentaire avant que vos travaux démarre. Mise en relation simple rapide et sécurisée.'
+        body: 'Nos technicien(e)s mettent en avant leur travail. Vous avez ainsi une assurance supplémentaire avant que vos travaux démarrent. Mise en relation simple, rapide et sécurisée.'
     },
 ];
 
@@ -543,7 +543,7 @@ export const engagements = [
     },
     {
         image: waranty,
-        text: ["Intervation couverte", "par une assurance"]
+        text: ["Intervention couverte", "par une assurance"]
     },
     {
         image: tarif,

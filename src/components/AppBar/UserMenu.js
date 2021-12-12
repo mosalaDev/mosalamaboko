@@ -92,7 +92,7 @@ export default function UserMenu({ user, shadow }) {
                             <Fade {...TransitionProps} timeout={350}>
                                 <div className={clsx(classes.content, 'popper-content')}>
                                     <div>
-                                        <Typography><span>Connecté en tant que</span><span>{user.prenom} {user.nom}</span></Typography>
+                                        <Typography><span>Connecté{user.sexe !== "M" ? "e" : ""} en tant que</span><span>{user.prenom} {user.nom}</span></Typography>
                                     </div>
                                     <div>
                                         <Link to={`/client/${user.username}`}>

@@ -312,8 +312,8 @@ const Reservation = () => {
                     <div className={classes.formBlock}>
                         <div className={classes.innerBlock}>
                             <div className={classes.blockHeader}>
-                                <Typography variant="h4" className={classes.question}>Selection de service</Typography>
-                                <Typography variant="body1" color="textSecondary" className={classes.blockDescription}>Selectionnez le service que vous voulez reserver.</Typography>
+                                <Typography variant="h4" className={classes.question}>Sélection de service</Typography>
+                                <Typography variant="body1" color="textSecondary" className={classes.blockDescription}>Sélectionnez le service que vous voulez réserver.</Typography>
                                 {errors.services &&
                                     <Alert severity="error" color="error">{errors.services}</Alert>
                                 }
@@ -353,7 +353,7 @@ const Reservation = () => {
                         <div className={classes.innerBlock}>
                             <div className={`${classes.blockHeader} center-flex-column-content`}>
                                 <Typography variant="h5" className={classes.question}>Catégorie des travaux</Typography>
-                                <Typography variant="body1" color="inherit" className={classes.blockDescription}>Selectionnez l'un des groupes ci-dessous.</Typography>
+                                <Typography variant="body1" color="inherit" className={classes.blockDescription}>Sélectionnez l'une des catégories ci-dessous.</Typography>
                                 <div className={classes.gammeList}>
                                     {gammes.length === 0 ?
                                         <Typography variant="h6" color="textSecondary">Aucune information pour ce service pour l'instant</Typography> :
@@ -394,7 +394,7 @@ const Reservation = () => {
                         <div className={classes.innerBlock}>
                             <div className={classes.blockHeader}>
                                 <Typography variant="body1" className={classes.question}>Détails des travaux</Typography>
-                                <Typography variant="body1" color="textSecondary" className={classes.blockDescription}>Selectionnez les travaux. Si un travail que vous cherchez ne se trouve pas dans la liste, ajoutez le dans le champs <span style={{ fontWeight: 'bold' }}>autre travail</span>.</Typography>
+                                <Typography variant="body1" color="textSecondary" className={classes.blockDescription}>Sélectionnez les travaux. Si un travail que vous voulez réserver ne figure pas dans la liste, ajoutez le dans le champs <span style={{ fontWeight: 'bold' }}>autre travail</span>.</Typography>
                                 {errors.works &&
                                     <Alert severity="error" color="error">{errors.works}</Alert>
                                 }
@@ -513,7 +513,7 @@ const Reservation = () => {
                                 </div>
                                 <div className={classes.position}>
                                     <Typography variant="body1" style={{ textAlign: 'start', marginBottom: 10 }}>Coordonnées géographiques</Typography>
-                                    <Typography variant="body1" color="textSecondary" className={classes.inputDescription}>Si votre position actuelle est le lieu d'intervation, activez la locatisation.</Typography>
+                                    <Typography variant="body1" color="textSecondary" className={classes.inputDescription}>Si votre position actuelle est le lieu d'intervention, activez la locatisation.</Typography>
                                     <Switch
                                         name="coords"
                                         label="Activer ma position"
@@ -555,7 +555,7 @@ const Reservation = () => {
                     <div className={classes.formBlock}>
                         <div className={classes.innerBlock}>
                             <div className={classes.blockHeader}>
-                                <Typography variant="h5" className={classes.question}>Date et heure d'intervation</Typography>
+                                <Typography variant="h5" className={classes.question}>Date et heure d'intervention</Typography>
                                 {errors.date &&
                                     <Alert severity="error" color="error">{errors.date}</Alert>
                                 }
@@ -669,7 +669,7 @@ const Reservation = () => {
                                                 <span>{date.toLocaleDateString('en-GB')} {hour}:{min}</span>
                                             </Typography>
                                             <div style={{ margin: '15px 0' }}>
-                                                <Typography variant="body2" className={classes.userDataDisplay}><span>Travaux reservés</span></Typography>
+                                                <Typography variant="body2" className={classes.userDataDisplay}><span>Travaux réservés</span></Typography>
                                                 <ul style={{ padding: '10px 0', color: '#444', maxHeight: 75, overflowY: 'auto', listStyle: 'inside' }}>
                                                     {selectedWorks.map(w => {
                                                         return (

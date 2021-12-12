@@ -319,7 +319,7 @@ export default function TrouverArtisan() {
                                 <div className="container">
                                     <div className="inner-banner">
                                         <Typography variant="h4" className="content-title">Trouver un {chosenService.nomination}</Typography>
-                                        <Typography variant="body1" className="content-detail">Il est maintenant facile de trouver un technicien pour vos travaux, renseignez les informations demandées et vous aurez une solution.</Typography>
+                                        <Typography variant="body1" className="content-detail">Il est maintenant facile de trouver un(e) technicien(e) pour vos travaux, renseignez les informations demandées et vous aurez une solution.</Typography>
                                     </div>
                                 </div>
                             </div>
@@ -433,7 +433,7 @@ export default function TrouverArtisan() {
                                                             onClick={goToPreviousStep}
                                                         >
                                                             <ChevronLeftSharp />
-                                                            Précendent
+                                                            Précéndent
                                                         </Button>
                                                         <Button
                                                             className="btn"
@@ -452,7 +452,7 @@ export default function TrouverArtisan() {
                                             {step === 2 &&
                                                 <div className="form-block">
                                                     <div className="block-content">
-                                                        <Typography variant="h5" className="content-title">Lieu d'intervation</Typography>
+                                                        <Typography variant="h5" className="content-title">Lieu d'intervention</Typography>
                                                         <div className="f-group">
                                                             <div className="location">
                                                                 <div className="location-group">
@@ -504,7 +504,7 @@ export default function TrouverArtisan() {
                                                             </div>
                                                         </div>
                                                         <div>
-                                                            <Typography style={{ marginBottom: 15 }} variant="body2" color="textSecondary">Appuyer sur le bouton ci-dessous si vous êtes actuellement au lieu où se feront les travaux.</Typography>
+                                                            <Typography style={{ marginBottom: 15 }} variant="body2" color="textSecondary">Appuyez sur le bouton ci-dessous si vous êtes actuellement au lieu où se feront les travaux.</Typography>
                                                             <Button
                                                                 variant={(myPosition && position.length > 1) ? "contained" : "outlined"}
                                                                 color="secondary"
@@ -528,7 +528,7 @@ export default function TrouverArtisan() {
                                                             onClick={goToPreviousStep}
                                                         >
                                                             <ChevronLeftSharp />
-                                                            Précendent
+                                                            Précéndent
                                                         </Button>
                                                         <Button
                                                             className="btn"
@@ -547,7 +547,7 @@ export default function TrouverArtisan() {
                                             {step === 3 &&
                                                 <div className="form-block">
                                                     <div className="block-content">
-                                                        <Typography variant="h5" className="content-title">Date et heure d'intervation</Typography>
+                                                        <Typography variant="h5" className="content-title">Date et heure d'intervention</Typography>
                                                         {errors.date &&
                                                             <Alert severity="error" color="error">{errors.date}</Alert>
                                                         }
@@ -611,7 +611,7 @@ export default function TrouverArtisan() {
                                                             onClick={goToPreviousStep}
                                                         >
                                                             <ChevronLeftSharp />
-                                                            Précendent
+                                                            Précéndent
                                                         </Button>
                                                         <Button
                                                             className="btn"
@@ -643,7 +643,7 @@ export default function TrouverArtisan() {
                                                 <div className="form-block">
                                                     <div className="block-content center-flex-column-content center-text">
                                                         <div>
-                                                            <Typography variant="h5" className="content-title">Votre demande</Typography>
+                                                            <Typography variant="h5" className="content-title">Confirmez votre demande</Typography>
                                                         </div>
                                                         <div style={{ width: '100%' }}>
                                                             <Typography variant="body1" color="textSecondary">Vous cherchez un {chosenService.nomination} pour :</Typography>
@@ -659,7 +659,7 @@ export default function TrouverArtisan() {
                                                                 ))}
                                                             </ul>
                                                             <div style={{ margin: '15px 0' }}>
-                                                                <Typography variant="body2" className={classes.userDataDisplay}><span>Frais de transport et communication (technicien)</span></Typography>
+                                                                <Typography variant="body2" className={classes.userDataDisplay}><span>Frais de transport et de communication (technicien)</span></Typography>
                                                                 <div style={{ marginTop: 10 }}>
                                                                     <Typography variant="h5" color="textSecondary">5000Fc</Typography>
                                                                     <Typography style={{ marginTop: 5 }} variant="body2" color="textSecondary">A payer avant le début des travaux.</Typography>

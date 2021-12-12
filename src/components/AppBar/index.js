@@ -178,7 +178,7 @@ export default function AppBar() {
 							label="Réservation de service"
 							category="Réservation"
 						>
-							Réserver<Hidden smDown> une prestation</Hidden>
+							Réservez<Hidden smDown> une prestation</Hidden>
 						</GAEventButton>
 						<Hidden smDown>
 							{isConnected ? (
@@ -360,7 +360,7 @@ export default function AppBar() {
 								label="Réservation de service"
 								category="Réservation"
 							>
-								Réserver une prestation
+								Réservez une prestation
 							</GAEventButton>
 							<Box
 								display="flex"
