@@ -21,3 +21,5 @@ export { default as SignupForm } from './SignupForm';
 export { default as FAQ } from './MainPageBloks/FAQ';
 export { default as UserAccount } from './Reservation/UserAccount';
 export {default as GAEventButton} from './Button/GAEventButton';
+export {default as WhatsappFloatBtn} from './FloatBtn/Whatshapp';
+export {default as GoUpFloatBtn} from './FloatBtn/GoUp';

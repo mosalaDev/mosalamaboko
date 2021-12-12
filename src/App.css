@@ -251,7 +251,7 @@ label.m-checkbox {
     padding: 5px 10px 2px 10px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 840px) {
     .inner-content {
         padding: 0 10px;
     }

@@ -10,7 +10,7 @@ export default function ReservationCard({ reservation }) {
     const { url } = useRouteMatch();
     return (
         <Link to={`${url}/${reservation.id}`} style={{ display: 'block', width: '100%' }}>
-            <ButtonBase className="reservation-card" color="#0020b10a" style={{ width: '100%', border: `1px solid ${fade(isUrgent ? theme.palette.secondary.main : theme.palette.primary.main, 0.3)}` }}>
+            <ButtonBase className="reservation-card" color="#0020b10a" style={{ width: '100%', borderRadius: 5, border: `1px solid ${fade(isUrgent ? theme.palette.secondary.main : theme.palette.primary.main, 0.1)}` }}>
                 <div className="description">
                     <Typography variant="body1">Reservation {reservation.service.nom_service}</Typography>
                     <Typography variant="caption" color="textSecondary" style={{ display: 'block' }} >

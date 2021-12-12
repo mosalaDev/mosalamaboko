@@ -319,7 +319,7 @@ export default function TrouverArtisan() {
                                 <div className="container">
                                     <div className="inner-banner">
                                         <Typography variant="h4" className="content-title">Trouver un {chosenService.nomination}</Typography>
-                                        <Typography variant="body1" className="content-detail">Il est simple de trouver un technicien pour votre travail, fournissez les informations demandées ci-dessous.</Typography>
+                                        <Typography variant="body1" className="content-detail">Il est maintenant facile de trouver un technicien pour vos travaux, renseignez les informations demandées et vous aurez une solution.</Typography>
                                     </div>
                                 </div>
                             </div>
@@ -331,7 +331,7 @@ export default function TrouverArtisan() {
                                                 <div className="form-block">
                                                     <div className="block-content">
                                                         <Typography variant="h5" className="content-title">Description des travaux</Typography>
-                                                        <Typography variant="body1" style={{ fontWeight: 700, color: '#444', marginBottom: 10 }}>Sur quoi le technicien va travailler ?</Typography>
+                                                        <Typography variant="body1" style={{ fontWeight: 700, color: '#444', marginBottom: 10 }}>Sur quoi le technicien va-t-il travailler ?</Typography>
                                                         {errors.works &&
                                                             <Alert severity="error" color="error">{errors.works}</Alert>
                                                         }
@@ -666,7 +666,7 @@ export default function TrouverArtisan() {
                                                                 </div>
                                                             </div>
                                                             <div className="margin-t-30">
-                                                                <Typography variant="body1" color="textSecondary" style={{ textAlign: 'justify' }}>En appuyant sur <strong>confirmer</strong> vous acceptez les <Link to="#" className="important-link">conditions d'utlisation</Link> de Mosala maboko.</Typography>
+                                                                <Typography variant="body1" color="textSecondary" style={{ textAlign: 'justify' }}>En appuyant sur <strong>confirmer</strong> vous acceptez les <Link to="/aide/cgus" target="_blank" className="important-link">conditions d'utlisation</Link> de Mosala maboko.</Typography>
                                                                 <div className="flex-container margin-t-20" style={{ justifyContent: 'space-between' }}>
                                                                     <Button
                                                                         className="btn"
@@ -753,11 +753,14 @@ const useStyles = makeStyles(theme => ({
     },
     workTable: {
         border: '1px solid #eaeaea',
-        margin: '15px 0'
+        margin: '15px 0',
+        borderRadius: 7,
+        overflow: 'hidden'
     },
     workTableHeader: {
-        backgroundColor: theme.palette.primary.main,
-        color: '#fff',
+        backgroundColor: '#0020b145',
+        color: '#333',
+        fontWeight: 'bold',
     },
     workTableRow: {
         "&:not(:last-child)": {

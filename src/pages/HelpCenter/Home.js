@@ -54,7 +54,7 @@ export default function HelpCenter() {
             </div>
             <div className={classes.footer}>
                 <div className={clsx("align-start-flex-row-content")}>
-                    <Typography className={classes.contactText}>Pour d'autres questions écrivez-nous au -------------</Typography>
+                    <Typography className={classes.contactText}>Pour d'autres questions écrivez-nous au <a href="tel:+243906054917">+243 906 054 917</a></Typography>
                 </div>
                 <div>
                     <Typography style={{ fontSize: 15, textAlign: 'center' }}>© Gifted Hands Technology. Tous droits reservés</Typography>

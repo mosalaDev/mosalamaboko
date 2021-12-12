@@ -55,7 +55,7 @@ export default function Cgus() {
                 <Box borderTop="1px solid #eaeaea" pt={2} pb={2}>
                     <Box display="flex" alignItems="center" pb={2}>
                         <Typography variant="h5" className={classes.smallTitle}>Article 2.</Typography>
-                        <Typography variant="h5" style={{marginLeft: 10}} className={classes.smallTitle}>Et qualifié de :</Typography>
+                        <Typography variant="h5" style={{marginLeft: 10}} className={classes.smallTitle}>Accès et contenu du site :</Typography>
                     </Box>
                     <Typography>
                         Le site web mosalamaboko.com est accessible gratuitement au Utilisateur à partir d'un ordinateur, d'un smartphone, d’une tablette ou de tout support disposant d'un accès au réseau internet. Tous les coûts afférents à l'accès au site Internet, que ce soient les frais de matériels, de logiciels ou d'accès à Internet sont exclusivement à la charge de l'Utilisateur. Il est seul responsable du bon fonctionnement de son équipement informatique ainsi que de son accès à Internet. 

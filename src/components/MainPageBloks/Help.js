@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	helpCardList: {
 		display: "grid",
-		gridTemplateColumns: '1fr 1fr 1fr',
+		gridTemplateColumns: "1fr 1fr 1fr",
 		gap: 20,
 		backgroundColor: "#fff",
 	},
@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-        justifyContent: 'center',
+		justifyContent: "center",
 	},
 	cardBlock: {
 		flex: 1,
@@ -93,9 +93,12 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		margin: "5px 0",
 		maxHeight: 200,
-        "& > img": {
-            width: '60%',
-        }
+		"& > img": {
+			width: "60%",
+			[theme.breakpoints.between(600, 750)]: {
+				width: "40%",
+			},
+		},
 	},
 	cardBadge: {
 		position: "absolute",
@@ -123,12 +126,12 @@ const useStyles = makeStyles((theme) => ({
 	cardBody: {
 		fontWeight: "400",
 		fontSize: 15,
-        textAlign: 'center'
+		textAlign: "center",
 	},
 	cardText: {
 		fontSize: 15,
 	},
-	[theme.breakpoints.down("sm").replace("959.95px", "810px")]: {
+	[theme.breakpoints.down(810)]: {
 		title: {
 			fontSize: 30,
 		},
@@ -148,12 +151,12 @@ const useStyles = makeStyles((theme) => ({
 			marginTop: 10,
 		},
 	},
-	[theme.breakpoints.down("xs").replace("599.95px", "750px")]: {
+	[theme.breakpoints.down(750)]: {
 		helpCardList: {
-			gridTemplateColumns: '1fr'
+			gridTemplateColumns: "1fr",
 		},
 		cardTitle: {
-			fontSize: 20
+			fontSize: 20,
 		},
 	},
 	[theme.breakpoints.down("sm")]: {

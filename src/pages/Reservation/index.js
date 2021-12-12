@@ -356,7 +356,7 @@ const Reservation = () => {
                                 <Typography variant="body1" color="inherit" className={classes.blockDescription}>Selectionnez l'un des groupes ci-dessous.</Typography>
                                 <div className={classes.gammeList}>
                                     {gammes.length === 0 ?
-                                        <Typography variant="h6" color="textSecondary">Pas de {category} pour ce service</Typography> :
+                                        <Typography variant="h6" color="textSecondary">Aucune information pour ce service pour l'instant</Typography> :
                                         gammes.map(gamme => (
                                             <Button
                                                 key={gamme.id}
@@ -688,7 +688,7 @@ const Reservation = () => {
                                         </div>
                                     </div>
                                     <div className={classes.outerFormActions}>
-                                        <Typography variant="body1" color="textSecondary" style={{ textAlign: 'justify' }}>En appuyant sur <strong>confirmer</strong> vous acceptez les <Link to="#" className="important-link">conditions d'utlisation</Link> de Mosala maboko.</Typography>
+                                        <Typography variant="body1" color="textSecondary" style={{ textAlign: 'justify' }}>En appuyant sur <strong>confirmer</strong> vous acceptez les <Link to="/aide/cgus" target="_blank" className="important-link">conditions d'utlisation</Link> de Mosala maboko.</Typography>
                                         <div className="form-actions" style={{ justifyContent: 'space-between' }}>
                                             <Button
                                                 className="btn"
@@ -735,7 +735,7 @@ const Reservation = () => {
     }
 
     return (
-        <Modal open={true} handleClose={handleClose} contentContainerStyles={{ padding: 0 }}>
+        <Modal open={true} handleClose={handleClose} contentContainerStyles={{ padding: 0, borderRadius: 0 }}>
             <div className={`reservation ${classes.container}`}>
                 {isFinished ?
                     <Fade in={isFinished}>

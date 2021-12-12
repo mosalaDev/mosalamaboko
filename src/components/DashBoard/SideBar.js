@@ -87,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
     drawerOpen: {
         width: 200,
         overflowX: 'hidden',
+        borderRight: '1px solid #eaeaeab3',
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,

@@ -26,7 +26,7 @@ const DPicker = (props) => {
                 fullWidth={fullwidth}
                 size="small"
                 style={{ marginTop: 10, width: '100%' }}
-                InputProps={{ style: { borderRadius: 0 } }}
+                InputProps={{ style: { borderRadius: 5 } }}
                 format="dd/MM/yyyy"
                 value={selectedDate}
                 onChange={handleDateChange}

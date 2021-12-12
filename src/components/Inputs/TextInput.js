@@ -39,7 +39,7 @@ const TextInput = (props) => {
                 inputRef={inputRef}
                 multiline={multiline}
                 fullWidth={fullWidth}
-                InputProps={{ ...InputProps, style: { borderRadius: 0, } }}
+                InputProps={{ ...InputProps, style: { borderRadius: 5, } }}
                 inputProps={inputProps}
                 size="small"
                 type={type}

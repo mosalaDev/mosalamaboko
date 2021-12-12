@@ -9,10 +9,11 @@ import {
 	DemandePrestationPannel,
 	DevenirTechnicien,
 	FAQ,
+	WhatsappFloatBtn,
+	GoUpFloatBtn,
 } from "../../components";
 
 import { Typography } from "@material-ui/core";
-import banner from "../../assets/small-banner.png";
 import ReactGA from 'react-ga';
 
 export default function MainPage() {
@@ -34,12 +35,14 @@ export default function MainPage() {
 	}, []);
 	return (
 		<div className="home">
+			<GoUpFloatBtn />
+			<WhatsappFloatBtn />
 			<section className="content hero">
 				<div className="container inner-content">
 					<div className="hero-content">
 						<Typography variant="h1" className="title">
 							Des technicien(ne)s
-							<br /> qualifié(e)s près de nous.
+							<br />qualifié(e)s près de nous.
 						</Typography>
 						<Typography variant="h5" className="devise">
 							Vous avez une panne ? Obtenez rapidement de l'aide.
@@ -53,7 +56,7 @@ export default function MainPage() {
 								className="btn hero-btn"
 								onClick={handleAskReservation}
 							>
-								Trouvez un technicien
+								Trouvez un(e) technicien(e)
 							</Button>
 						</div>
 					</div>

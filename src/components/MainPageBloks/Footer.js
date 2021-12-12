@@ -7,10 +7,10 @@ export default function Footer() {
     return (
         <div className={classes.footer}>
             <div className={classes.content}>
-                <Link to="/aide" className={classes.helpLink}>Centre d&#39;aide</Link>
+                <Link to="#" className={classes.helpLink}>Centre d&#39;aide</Link>
                 <ul className={classes.links}>
                     <li className={classes.listItem}>
-                        <Link to="/">FAQ</Link>
+                        <Link to="/aide">FAQ</Link>
                     </li>
                     <li className={classes.listItem}>
                         <Link to="/">Qui sommes nous ?</Link>
@@ -62,7 +62,7 @@ const useStyles = makeStyles(theme => ({
     content: {
         padding: '20px 40px',
         color: '#b9b9b9',
-        maxWidth: 800,
+        maxWidth: 'fit-content',
         margin: 'auto',
         [theme.breakpoints.down('sm')]: {
             padding: '70px 10px'

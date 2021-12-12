@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 3),
         maxHeight: '100vh',
         overflowY: 'auto',
+        [theme.breakpoints.down('sm')]: {
+            borderRadius: 0
+        }
     },
 }));
 

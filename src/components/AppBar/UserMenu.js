@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#fff',
         boxShadow: 'rgb(1 4 9 / 48%) 0px 8px 24px 0px',
         border: '1px solid rgba(0, 0, 0, 0.58)',
+        borderRadius: 8,
         "& > div": {
             color: '#444',
             "&:not(:last-child)": {
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UserMenu({ user }) {
+export default function UserMenu({ user, shadow }) {
     const loading = useSelector(isLogingOut);
 
     const matches = useMediaQuery('(max-width:600px)');
@@ -77,9 +78,11 @@ export default function UserMenu({ user }) {
                     <Button
                         className="btn"
                         {...bindToggle(popupState)}
-                        variant={matches ? "text" : "outlined"}
                         disableElevation
-                        color="secondary"
+                        style={{
+                            border: `1px solid ${shadow ? "#eaeaea" : '#fff'}`,
+                            color: shadow ? "#777" : '#fff',
+                        }}
                     >
                         {user ? user.prenom : ""}
                         <ArrowDropDown />

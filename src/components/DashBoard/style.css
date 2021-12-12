@@ -97,7 +97,7 @@
     max-width: 315px;
     min-width: 300px;
     color: #484848;
-    box-shadow: 0px 0px 1px 0px #9c9c9c;
+    border-left: 1px solid #eaeaea59;
     margin-bottom: 70px;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .right-aside .vertical-list:not(:last-child) {
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea59;
 }
 
 .right-aside .vertical-list {

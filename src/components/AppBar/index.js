@@ -14,13 +14,15 @@ import {
 	Avatar,
 	CircularProgress,
 } from "@material-ui/core";
+import { Facebook, Instagram, LinkedIn } from "@material-ui/icons";
 import { getUser, getConnectionState } from "../../redux/reducers/user";
 import UserMenu from "./UserMenu";
 import { Phone, Menu } from "@material-ui/icons";
 import Close from "@material-ui/icons/Close";
 import { logoutUser, isLogingOut } from "../../redux/reducers/user";
 import { GAEventButton } from "..";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
+import { gaEvent } from "../../customeFunctionalities/reactGa";
 
 export default function AppBar() {
 	const [shadow, setShadow] = useState(false);
@@ -34,10 +36,14 @@ export default function AppBar() {
 
 	const handleTelClick = () => {
 		ReactGA.event({
-            category: 'téléphone',
-            action: 'Appel téléphonique',
-        });
-	}
+			category: "contact",
+			action: "Appel téléphonique",
+		});
+	};
+
+	const handleScialClick = (name) => {
+		gaEvent(`go to ${name}`, "social link clicked", "link");
+	};
 
 	const goToReservation = () => {
 		history.push("/reservation");
@@ -97,6 +103,43 @@ export default function AppBar() {
 							</div>
 						</div>
 					</Link>
+					<Hidden xsDown>
+						<Box display="flex" alignItems="center" pt={1} ml={1}>
+							<a
+								href="https://www.linkedin.com/company/mosala-maboko"
+								target="blank"
+								onClick={() => handleScialClick("linkedin")}
+								style={{ marginRight: 5 }}
+							>
+								<LinkedIn
+									htmlColor="#007bb5"
+									style={{ fontSize: "1.5875rem" }}
+								/>
+							</a>
+							<a
+								href="https://facebook.com/mosalamaboko2021"
+								target="blank"
+								onClick={() => handleScialClick("facebook")}
+								style={{ marginRight: 5 }}
+							>
+								<Facebook
+									htmlColor="#3b5998"
+									style={{ fontSize: "1.5875rem" }}
+								/>
+							</a>
+							<a
+								href="https://www.instagram.com/mosalamaboko"
+								target="blank"
+								onClick={() => handleScialClick("instagram")}
+								style={{ marginRight: 5 }}
+							>
+								<Instagram
+									htmlColor="#E4405F"
+									style={{ fontSize: "1.5875rem" }}
+								/>
+							</a>
+						</Box>
+					</Hidden>
 					<div className="connexion">
 						<a href="tel:+243906054917">
 							<Box
@@ -105,14 +148,18 @@ export default function AppBar() {
 								className="phone"
 								onClick={handleTelClick}
 							>
-								<Hidden xsDown>
-									<IconButton size="small" style={{ padding: 5 }}>
+								<Hidden smDown>
+									<IconButton
+										size="small"
+										style={{ padding: 5 }}
+									>
 										<Phone fontSize="small" />
 									</IconButton>
 								</Hidden>
 								<Typography
 									style={{
-										color: shadow || !isHome ? "#000" : "#fff",
+										color:
+											shadow || !isHome ? "#000" : "#fff",
 										fontWeight: 500,
 									}}
 									className="top-tel"
@@ -131,11 +178,11 @@ export default function AppBar() {
 							label="Réservation de service"
 							category="Réservation"
 						>
-							Réserver<Hidden xsDown> une prestation</Hidden>
+							Réserver<Hidden smDown> une prestation</Hidden>
 						</GAEventButton>
-						<Hidden xsDown>
+						<Hidden smDown>
 							{isConnected ? (
-								<UserMenu user={user} />
+								<UserMenu user={user} shadow={shadow || !isHome} />
 							) : (
 								<GAEventButton
 									className="btn"
@@ -151,7 +198,7 @@ export default function AppBar() {
 								</GAEventButton>
 							)}
 						</Hidden>
-						<Hidden smUp>
+						<Hidden mdUp>
 							<IconButton
 								onClick={toggleNav}
 								size="small"
@@ -167,7 +214,7 @@ export default function AppBar() {
 					</div>
 				</div>
 			</div>
-			<Hidden smUp>
+			<Hidden mdUp>
 				<div className={classes.responsiveNav}>
 					<div className={classes.responsiveToolbar}>
 						<Box
@@ -241,9 +288,9 @@ export default function AppBar() {
 											variant="text"
 											color="default"
 											className="btn"
-                                            style={{ marginTop: 15 }}
-                                            size="small"
-                                            fullWidth
+											style={{ marginTop: 15 }}
+											size="small"
+											fullWidth
 											onClick={handleDeconnect}
 										>
 											Deconnecter
@@ -315,6 +362,49 @@ export default function AppBar() {
 							>
 								Réserver une prestation
 							</GAEventButton>
+							<Box
+								display="flex"
+								alignItems="center"
+								justifyContent="center"
+								p={1}
+								mt={1}
+							>
+								<a
+									href="https://www.linkedin.com/company/mosala-maboko"
+									target="blank"
+									onClick={() => handleScialClick("linkedin")}
+									style={{ marginRight: 5 }}
+								>
+									<LinkedIn
+										htmlColor="#007bb5"
+										style={{ fontSize: "1.8875rem" }}
+									/>
+								</a>
+								<a
+									href="https://facebook.com/mosalamaboko2021"
+									target="blank"
+									onClick={() => handleScialClick("facebook")}
+									style={{ marginRight: 5 }}
+								>
+									<Facebook
+										htmlColor="#3b5998"
+										style={{ fontSize: "1.8875rem" }}
+									/>
+								</a>
+								<a
+									href="https://www.instagram.com/mosalamaboko"
+									target="blank"
+									onClick={() =>
+										handleScialClick("instagram")
+									}
+									style={{ marginRight: 5 }}
+								>
+									<Instagram
+										htmlColor="#E4405F"
+										style={{ fontSize: "1.8875rem" }}
+									/>
+								</a>
+							</Box>
 						</Box>
 						<Box
 							borderTop="1px solid #eaeaea"
@@ -334,18 +424,28 @@ export default function AppBar() {
 							</Typography>
 							<Box component="ul">
 								<li>
-									<Typography
-										style={{ fontSize: 14, color: "#888" }}
-									>
-										+243 906 054 917
-									</Typography>
+									<a href="tel:+243906054917">
+										<Typography
+											style={{
+												fontSize: 14,
+												color: "#888",
+											}}
+										>
+											+243 906 054 917
+										</Typography>
+									</a>
 								</li>
 								<li>
-									<Typography
-										style={{ fontSize: 14, color: "#888" }}
-									>
-										contacts@mosalamaboko.com
-									</Typography>
+									<a href="mailto:contacts@mosalamaboko.com">
+										<Typography
+											style={{
+												fontSize: 14,
+												color: "#888",
+											}}
+										>
+											contacts@mosalamaboko.com
+										</Typography>
+									</a>
 								</li>
 								<li>
 									<Typography
