@@ -451,7 +451,7 @@ export default function AppBar() {
 									<Typography
 										style={{ fontSize: 14, color: "#888" }}
 									>
-										Av. De la Douane, Q. de la Gare, Gombe,
+										Av. 7, De la Douane, Q. de la Gare, Gombe,
 										Kinshasa
 									</Typography>
 								</li>
