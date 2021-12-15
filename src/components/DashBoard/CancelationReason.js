@@ -91,7 +91,6 @@ const CancelationReason = ({ open, onClose, reservationId }) => {
     const [cancelationReason, setCancelationReason] = React.useState('');
     const [textInput, setTextInput] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState(false);
     const history = useHistory();
 
     const toggleTextInput = () => {
@@ -118,14 +117,11 @@ const CancelationReason = ({ open, onClose, reservationId }) => {
             .post(`/api/reservation/${reservationId}/annuler/raison`, { motif: reason || cancelationReason })
             .then(res => {
                 const d = res.data;
-                if (d.code) {
-                    setError(d.message);
-                } else {
+                if (!d.code) {
                     canceled();
                 }
             })
             .catch(err => {
-                setError(err.message);
                 console.log(err);
             })
             .finally(() => { setLoading(false); });

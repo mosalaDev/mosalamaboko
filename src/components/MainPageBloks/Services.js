@@ -63,7 +63,7 @@ export default function Services() {
 												>
 													<img
 														src={service.image}
-														alt={service.name}
+														alt={service.nom_service}
 														className={
 															classes.image
 														}

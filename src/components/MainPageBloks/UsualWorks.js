@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {useHistory} from 'react-router-dom';
-import { Typography, makeStyles, fade } from "@material-ui/core";
+import { Typography, makeStyles } from "@material-ui/core";
 
 import { useGetServices } from "../../customeFunctionalities/data";
 import { shaffleArray } from "../../customeFunctionalities/helpers";
 
 export default function UsualWorks() {
     const [gammes, setGammes] = useState([]);
-    const {services, loading} = useGetServices();
+    const {services} = useGetServices();
 
     const history = useHistory();
     const handleClick = (gamme) => {

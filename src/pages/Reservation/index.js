@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './reservation.css';
 import { useSelector, useDispatch } from 'react-redux';
 import logo from '../../assets/logo.png';
@@ -132,7 +132,7 @@ const Reservation = () => {
             });
     };
 
-    const changeService = useCallback((serviceId) => {
+    const changeService = (serviceId) => {
         const service = services.find(s => s.id.toString() === serviceId);
         let gammes = [];
 
@@ -140,7 +140,7 @@ const Reservation = () => {
         gammes = service ? service.gamme_travaux : [];
 
         setGammes(gammes);
-    })
+    }
 
     const handleSelectService = (e) => {
         const checked = e.target.checked;        
@@ -203,7 +203,7 @@ const Reservation = () => {
         setDate(date);
     };
 
-    const goToNextStep = useCallback(() => {
+    const goToNextStep = () => {
         if (step > 5) {
             return;
         }
@@ -254,7 +254,7 @@ const Reservation = () => {
         if (valid) {
             setStep(step + 1);
         }
-    });
+    };
 
 
     const goToPreviousStep = () => {
@@ -288,7 +288,8 @@ const Reservation = () => {
             changeService(serviceId);
             goToNextStep();
         }
-    }, [changeService, goToNextStep, serviceId, services]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [serviceId, services]);
 
     useEffect(() => {
         if (fBRef.current) {

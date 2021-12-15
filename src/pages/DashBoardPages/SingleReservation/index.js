@@ -15,13 +15,12 @@ import './style.css';
 
 import LoadingData from '../../../components/DashBoard/LoadingData';
 import { formatDate, getTime } from '../../../customeFunctionalities/helpers';
-import { updateReservation, cancelReservation, getCancelingState, getUpdatingState } from '../../../redux/reducers/reservations';
+import { cancelReservation, getCancelingState, getUpdatingState } from '../../../redux/reducers/reservations';
 import { CancelationReason, ConfirmationMessage, LoadingModal } from '../../../components/DashBoard';
 
 export default function SingleReservation() {
     const { reservationId } = useParams();
     const [reservation, setReservation] = useState(useSelector(state => selectById(state, reservationId)));
-    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [filter, setFilter] = useState('info');
     // const [modif, setModif] = useState(false);
@@ -65,7 +64,7 @@ export default function SingleReservation() {
             .get(`/reservation/${reservationId}`)
             .then(res => {
                 if (res.code) {
-                    setError(res.message);
+                    console.log(res.message);
                     return;
                 }
 

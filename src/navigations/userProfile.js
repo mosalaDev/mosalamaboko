@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import '../pages/DashBoardPages/style.css';
 import Typography from '@material-ui/core/Typography';
-import { AppBar, Toolbar, useMediaQuery } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';

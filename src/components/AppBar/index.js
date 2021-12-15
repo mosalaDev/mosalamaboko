@@ -14,7 +14,7 @@ import {
 	Avatar,
 	CircularProgress,
 } from "@material-ui/core";
-import { Facebook, Instagram, LinkedIn } from "@material-ui/icons";
+import { Facebook, Instagram, LinkedIn, Twitter } from "@material-ui/icons";
 import { getUser, getConnectionState } from "../../redux/reducers/user";
 import UserMenu from "./UserMenu";
 import { Phone, Menu } from "@material-ui/icons";
@@ -117,6 +117,17 @@ export default function AppBar() {
 								/>
 							</a>
 							<a
+								href="https://twitter.com/MabokoMosala?s=20"
+								target="blank"
+								onClick={() => handleScialClick("linkedin")}
+								style={{ marginRight: 5 }}
+							>
+								<Twitter
+									htmlColor="#1DA1F2"
+									style={{ fontSize: "1.5875rem" }}
+								/>
+							</a>
+							<a
 								href="https://facebook.com/mosalamaboko2021"
 								target="blank"
 								onClick={() => handleScialClick("facebook")}
@@ -182,7 +193,10 @@ export default function AppBar() {
 						</GAEventButton>
 						<Hidden smDown>
 							{isConnected ? (
-								<UserMenu user={user} shadow={shadow || !isHome} />
+								<UserMenu
+									user={user}
+									shadow={shadow || !isHome}
+								/>
 							) : (
 								<GAEventButton
 									className="btn"
@@ -381,6 +395,17 @@ export default function AppBar() {
 									/>
 								</a>
 								<a
+									href="https://twitter.com/MabokoMosala?s=20"
+									target="blank"
+									onClick={() => handleScialClick("linkedin")}
+									style={{ marginRight: 5 }}
+								>
+									<Twitter
+										htmlColor="#1DA1F2"
+										style={{ fontSize: "1.5875rem" }}
+									/>
+								</a>
+								<a
 									href="https://facebook.com/mosalamaboko2021"
 									target="blank"
 									onClick={() => handleScialClick("facebook")}
@@ -451,8 +476,8 @@ export default function AppBar() {
 									<Typography
 										style={{ fontSize: 14, color: "#888" }}
 									>
-										Av. 7, De la Douane, Q. de la Gare, Gombe,
-										Kinshasa
+										Av. 7, De la Douane, Q. de la Gare,
+										Gombe, Kinshasa
 									</Typography>
 								</li>
 							</Box>

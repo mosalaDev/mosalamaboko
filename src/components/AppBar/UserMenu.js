@@ -11,7 +11,7 @@ import { ArrowDropDown } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
 import { logoutUser, isLogingOut } from '../../redux/reducers/user';
-import { CircularProgress, useMediaQuery } from '@material-ui/core';
+import { CircularProgress } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -63,8 +63,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserMenu({ user, shadow }) {
     const loading = useSelector(isLogingOut);
-
-    const matches = useMediaQuery('(max-width:600px)');
 
     const dispatch = useDispatch();
     const handleDeconnect = () => {

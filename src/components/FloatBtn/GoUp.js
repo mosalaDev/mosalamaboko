@@ -26,7 +26,7 @@ export default function GoUpFloatBtn() {
     return (
         <Fade in={display}>
             <Fab onClick={handleOnClick} size={matches ? "medium" : "large"} variant="extended" color="secondary" className={classes.root}>
-                <ArrowUpwardIcon fontSize={matches ? "small": "medium"} />
+                <ArrowUpwardIcon fontSize={matches ? "small": "large"} />
             </Fab>
         </Fade>
     )

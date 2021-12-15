@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainSwitchNavigation, ProfileNavigation, HelpCenterNavigation } from './navigations';
-import { Login, Presentation, Signup } from './pages';
+import { Login, Signup } from './pages';
 import { ForbidenRoute, ProtectedRoute } from './components';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';

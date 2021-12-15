@@ -1,12 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Link, useRouteMatch } from 'react-router-dom';
-import { makeStyles, Typography, Button } from '@material-ui/core';
-import hat from '../../assets/hat.svg';
+import { Link } from 'react-router-dom';
+import { makeStyles, Typography } from '@material-ui/core';
 import { GAEventButton } from '..';
 
 export default function DevenirTechnicien() {
-    const { url } = useRouteMatch();
     const classes = useStyles();
     return (
         <div className={classes.wrapper}>

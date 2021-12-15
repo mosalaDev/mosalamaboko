@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { Typography, Fade, Button, CircularProgress, makeStyles } from '@material-ui/core';
+import { Typography, Fade, Button, CircularProgress } from '@material-ui/core';
 import Person from '@material-ui/icons/Person';
 import ChevronLeftSharp from '@material-ui/icons/ChevronLeftSharp';
 import ChevronRightSharp from '@material-ui/icons/ChevronRightSharp';

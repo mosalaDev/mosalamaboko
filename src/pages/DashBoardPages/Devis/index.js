@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography } from '@material-ui/core';
 import { NoData } from '../../../components/DashBoard';
 
 export default function UserDevis() {
     const [devis, setDevis] = useState([]);
+
+    useEffect(() => {
+        setDevis([]);
+    }, []);
     return (
         <article className="dash-content dash-devis">
             <header>

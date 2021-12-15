@@ -44,6 +44,7 @@ export default function Presentation() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // eslint-disable-next-line no-useless-escape
         if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
             setError("Mauvais adresse mail");
             return;
