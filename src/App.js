@@ -18,7 +18,7 @@ const gaID = "UA-213364071-1"
 
 function App() {
   ReactGA.initialize(gaID, {
-    debug: true,
+    debug: false,
     titleCase: false,
     gaOptions: {
       userId: 123,
