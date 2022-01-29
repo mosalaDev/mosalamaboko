@@ -60,10 +60,13 @@ export default function WhatsappFloatBtn() {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		position: "fixed",
-		right: 2,
+		right: 35,
 		bottom: 60,
 		zIndex: 19,
 		backgroundColor: "#25D366!important",
+		[theme.breakpoints.down('sm')]: {
+			right: 15,
+		}
 	},
 	descript: {
 		position: "fixed",
@@ -72,12 +75,14 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: 20,
 		color: "#555",
 		zIndex: 20,
-		bottom: 130,
-		right: 20,
+		bottom: 127,
+		right: 45,
 		border: "1px solid #eaeaea",
+		[theme.breakpoints.down("sm")]: {
+			right: 30,
+		},
 		[theme.breakpoints.down("xs")]: {
 			bottom: 115,
-			right: 10,
 		},
 		"& > span": {
 			backgroundColor: "#fff",

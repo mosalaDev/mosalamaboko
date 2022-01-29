@@ -246,8 +246,8 @@ export const communes = [
         district: 'lukunga',
     },
     {
-        name: 'BANDAL',
-        district: 'lukunga',
+        name: 'BANDALUNGWA',
+        district: 'funa',
     },
     {
         name: 'BUMBU',
