@@ -7,6 +7,6 @@ const Sitemap = require('react-router-sitemap').default;
 
 (
 	new Sitemap(router)
-		.build('http://mosalamaboko.com')
+		.build('https://mosalamaboko.com')
 		.save('./sitemap.xml')
 );
