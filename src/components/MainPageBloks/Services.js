@@ -51,9 +51,9 @@ export default function Services() {
 												classes.serviceCard,
 												"home-service-card"
 											)}
-											style={{
-												boxShadow: `2px 2px 10px ${service.color}42`,
-											}}
+											// style={{
+											// 	boxShadow: `2px 2px 10px ${service.color}42`,
+											// }}
 										>
 											<div className={classes.cardHeader}>
 												<div
