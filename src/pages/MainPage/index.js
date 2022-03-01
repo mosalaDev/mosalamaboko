@@ -37,7 +37,7 @@ export default function MainPage() {
 		<div className="home">
 			<GoUpFloatBtn />
 			<WhatsappFloatBtn />
-			<section className="content hero">
+			<section className="hero">
 				<div className="container inner-content">
 					<div className="hero-content">
 						<Typography variant="h1" className="title">

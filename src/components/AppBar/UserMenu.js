@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UserMenu({ user, shadow }) {
+export default function UserMenu({ user }) {
     const loading = useSelector(isLogingOut);
 
     const dispatch = useDispatch();
@@ -78,8 +78,8 @@ export default function UserMenu({ user, shadow }) {
                         {...bindToggle(popupState)}
                         disableElevation
                         style={{
-                            border: `1px solid ${shadow ? "#eaeaea" : '#fff'}`,
-                            color: shadow ? "#777" : '#fff',
+                            border: `1px solid #eaeaea`,
+                            color: "#777",
                         }}
                     >
                         {user ? user.prenom : ""}

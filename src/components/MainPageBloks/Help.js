@@ -68,10 +68,11 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: "#fff",
 	},
 	helpCard: {
-		backgroundColor: "#fbfbfb",
+		backgroundColor: "#e4e4e4",
 		color: "#444",
 		width: "100%",
 		padding: "10px 15px",
+		borderRadius: 15,
 		"&:not(:last-child)": {
 			marginRight: 10,
 		},

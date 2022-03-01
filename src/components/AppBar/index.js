@@ -25,12 +25,10 @@ import ReactGA from "react-ga";
 import { gaEvent } from "../../customeFunctionalities/reactGa";
 
 export default function AppBar() {
-	const [shadow, setShadow] = useState(false);
 	const [showNav, setShowNav] = useState(false);
 	const history = useHistory();
 	const user = useSelector(getUser);
 	const isConnected = useSelector(getConnectionState);
-	const isHome = window.location.pathname === "/";
 	const loading = useSelector(isLogingOut);
 	const matches = useMediaQuery("(max-width:600px)");
 
@@ -70,26 +68,10 @@ export default function AppBar() {
 		dispatch(logoutUser()).then(toggleNav);
 	};
 
-	window.addEventListener("scroll", () => {
-		const scY = window.scrollY;
-		if (scY > 70) {
-			setShadow(true);
-		} else {
-			setShadow(false);
-		}
-	});
-
 	const classes = useStyles(showNav, user)();
 	return (
 		<div
 			className="appbar"
-			style={{
-				backgroundColor: shadow || !isHome ? "#ffffff" : "#00000000",
-				boxShadow:
-					shadow || !isHome
-						? "rgb(158 158 158 / 25%) 0px 1px 6px 0px"
-						: "rgb(158 158 158 / 25%) 0px 0px 0px 0px",
-			}}
 		>
 			<div className="container">
 				<div className="inner-content inner-appbar">
@@ -169,8 +151,7 @@ export default function AppBar() {
 								</Hidden>
 								<Typography
 									style={{
-										color:
-											shadow || !isHome ? "#000" : "#fff",
+										color: "#000",
 										fontWeight: 500,
 									}}
 									className="top-tel"
@@ -195,7 +176,6 @@ export default function AppBar() {
 							{isConnected ? (
 								<UserMenu
 									user={user}
-									shadow={shadow || !isHome}
 								/>
 							) : (
 								<GAEventButton
@@ -219,9 +199,7 @@ export default function AppBar() {
 								style={{ marginLeft: 10 }}
 							>
 								<Menu
-									htmlColor={
-										shadow || !isHome ? "#333" : "#fff"
-									}
+									htmlColor={"#333"}
 								/>
 							</IconButton>
 						</Hidden>

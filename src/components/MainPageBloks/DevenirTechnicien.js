@@ -74,7 +74,7 @@ const useStyles = makeStyles(theme => ({
         maxWidth: 430
     },
     actions: {
-        maxWidth: 256,
+        maxWidth: 300,
         marginTop: 20,
     },
 }))

@@ -1,17 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { AppBar, Footer } from '../components';
 import { MainPage, DemandeDevis, Reservation, TrouverArtisan, TechnicienForm } from '../pages';
 
 export default function MainSwitchNavigation() {
     const isHome = window.location.pathname === "/";
-
+	const [shadow, setShadow] = useState(false);
+    window.addEventListener("scroll", () => {
+		const scY = window.scrollY;
+		if (scY > 10) {
+			setShadow(true);
+		} else {
+			setShadow(false);
+		}
+	});
     return (
         <>
-            <div className="topbar">
+            <div className="topbar"
+                style={{
+                    backgroundColor: "#ffffff",
+                    boxShadow:
+                        shadow || !isHome
+                            ? "rgb(158 158 158 / 25%) 0px 1px 6px 0px"
+                            : "rgb(158 158 158 / 25%) 0px 0px 0px 0px",
+                }}
+            >
                 <AppBar />
             </div>
-            <div className="main-container" style={{paddingTop: isHome ? 0 : 70}}>
+            <div className="main-container" style={{paddingTop: 70}}>
                 <Switch>
                     <Route path="/devenir_technicien" component={TechnicienForm} />
                     <Route

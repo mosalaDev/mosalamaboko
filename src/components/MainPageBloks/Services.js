@@ -173,6 +173,7 @@ const useStyles = makeStyles((theme) => ({
 	serviceCard: {
 		flex: 1,
 		width: 250,
+		borderRadius: 15,
 		height: 200,
 		textAlign: "center",
 		padding: "20px",
