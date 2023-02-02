@@ -44,7 +44,7 @@ import {
 import {
 	validateService,
 	validateAddress,
-	validateWorks,
+	// validateWorks,
 	validateDateAndTime,
 } from "../../customeFunctionalities/validators";
 import { getLocation } from "../../customeFunctionalities/helpers";
@@ -58,7 +58,7 @@ const Reservation = () => {
 	const [step, setStep] = useState(0);
 	const [selectedService, setSelectedService] = useState({});
 	const [gammes, setGammes] = useState([]);
-	const [works, setWorks] = useState([]);
+	// const [works, setWorks] = useState([]);
 	const [selectedWorks, setSelectedWorks] = useState([]);
 	const [autresTravaux, setAutresTravaux] = useState("");
 	const [commune, setCommune] = useState("KINSHASA");
@@ -71,7 +71,7 @@ const Reservation = () => {
 	const [min, setMin] = useState("00");
 	const [allowLocation, setAllowLocation] = useState(false);
 	const [isFinished, setIsFinished] = useState(false);
-	const [category, setCategory] = useState(false);
+	// const [category, setCategory] = useState(false);
 	const [loadingLocation, setLoadingLocation] = useState(false);
 	const [createdReservation, setCreatedReservation] = useState(null);
 	const [showCancelMessage, setShowCancelMessage] = useState(false);
@@ -101,7 +101,7 @@ const Reservation = () => {
 
 	const steps = [
 		"Services",
-		"Catégorie",
+		// "Catégorie",
 		"Travaux",
 		"Lieu",
 		"Date et heure",
@@ -124,7 +124,7 @@ const Reservation = () => {
 		},
 	];
 
-	const zones = useSelector(selectAllZones);
+	// const zones = useSelector(selectAllZones);
 	const { services, loading: loadingServices } = useGetServices();
 
 	const handleClose = () => {
@@ -152,9 +152,9 @@ const Reservation = () => {
 		const com = communes.find(
 			(c) => c.name.toLowerCase() === commune.toLowerCase()
 		);
-		const zone = zones.find(
-			(z) => z.nom.toLowerCase() === com.district.toLowerCase()
-		);
+		// const zone = zones.find(
+		// 	(z) => z.nom.toLowerCase() === com.district.toLowerCase()
+		// );
 
 		const date_w = new Date(
 			date.getFullYear(),
@@ -180,7 +180,7 @@ const Reservation = () => {
 			avenue,
 			num,
 			position,
-			zone: zone.id,
+			// zone: zone.id,
 			service: selectedService.id,
 			travaux: selectedWorks,
 			autresTravaux,
@@ -220,28 +220,28 @@ const Reservation = () => {
 		}
 	};
 
-	const handleSetSelectGamme = (gamme) => {
-		setWorks(gamme.travaux);
-		setCategory(true);
-		setStep(step + 1);
-	};
+	// const handleSetSelectGamme = (gamme) => {
+	// 	setWorks(gamme.travaux);
+	// 	setCategory(true);
+	// 	setStep(step + 1);
+	// };
 
-	const handleChangeWork = (e) => {
-		let ws = selectedWorks;
-		const id = e.target.value;
-		const w = works.find((t) => t.id === id);
+	// const handleChangeWork = (e) => {
+	// 	let ws = selectedWorks;
+	// 	const id = e.target.value;
+	// 	const w = works.find((t) => t.id === id);
 
-		if (e.target.checked) {
-			ws.push({
-				id: w.id,
-				nom: w.nom_travail,
-			});
-		} else {
-			ws = ws.filter((w) => w.id !== id);
-		}
+	// 	if (e.target.checked) {
+	// 		ws.push({
+	// 			id: w.id,
+	// 			nom: w.nom_travail,
+	// 		});
+	// 	} else {
+	// 		ws = ws.filter((w) => w.id !== id);
+	// 	}
 
-		setSelectedWorks(ws);
-	};
+	// 	setSelectedWorks(ws);
+	// };
 
 	const handleAllowLocation = (e) => {
 		const checked = e.target.checked;
@@ -279,7 +279,7 @@ const Reservation = () => {
 	};
 
 	const goToNextStep = () => {
-		if (step > 5) {
+		if (step > 4) {
 			return;
 		}
 		let valid = true;
@@ -295,23 +295,24 @@ const Reservation = () => {
 					setErrors((errors) => ({ ...errors, services: null }));
 				}
 				break;
+			// case 1:
+			// 	if (!category) {
+			// 		valid = false;
+			// 	}
+			// 	break;
 			case 1:
-				if (!category) {
-					valid = false;
-				}
-				break;
-			case 2:
-				valid = validateWorks(selectedWorks, autresTravaux);
-				if (!valid) {
+				// valid = validateWorks(selectedWorks, autresTravaux);
+				if (autresTravaux === "") {
 					setErrors((errors) => ({
 						...errors,
-						works: "Selectionnez ou ajoutez au moin un travail.",
+						works: "Donnez une petite description des travaux reservés.",
 					}));
+					valid = false
 				} else {
 					setErrors((errors) => ({ ...errors, works: null }));
 				}
 				break;
-			case 3:
+			case 2:
 				const { valid: v, error } = validateAddress(
 					commune,
 					quartier,
@@ -324,7 +325,7 @@ const Reservation = () => {
 					...error,
 				}));
 				break;
-			case 4:
+			case 3:
 				const d = new Date(
 					date.getFullYear(),
 					date.getMonth(),
@@ -485,75 +486,75 @@ const Reservation = () => {
 						</div>
 					</div>
 				);
+			// case 1:
+			// 	return (
+			// 		<div className={classes.formBlock}>
+			// 			<div className={classes.innerBlock}>
+			// 				<div
+			// 					className={`${classes.blockHeader} center-flex-column-content`}
+			// 				>
+			// 					<Typography
+			// 						variant="h5"
+			// 						className={classes.question}
+			// 					>
+			// 						Catégorie des travaux
+			// 					</Typography>
+			// 					<Typography
+			// 						variant="body1"
+			// 						color="inherit"
+			// 						className={classes.blockDescription}
+			// 					>
+			// 						Sélectionnez l'une des catégories
+			// 						ci-dessous.
+			// 					</Typography>
+			// 					<div className={classes.gammeList}>
+			// 						{gammes.length === 0 ? (
+			// 							<Typography
+			// 								variant="h6"
+			// 								color="textSecondary"
+			// 							>
+			// 								Aucune information pour ce service
+			// 								pour l'instant
+			// 							</Typography>
+			// 						) : (
+			// 							gammes.map((gamme) => (
+			// 								<Button
+			// 									key={gamme.id}
+			// 									className={`btn ${classes.gammeBtn}`}
+			// 									size="large"
+			// 									variant="outlined"
+			// 									disableElevation
+			// 									color="primary"
+			// 									onClick={() =>
+			// 										handleSetSelectGamme(gamme)
+			// 									}
+			// 									fullWidth
+			// 								>
+			// 									{gamme.nom}
+			// 									<ChevronRightSharp />
+			// 								</Button>
+			// 							))
+			// 						)}
+			// 					</div>
+			// 					<Button
+			// 						className={`btn`}
+			// 						style={{ marginTop: 10 }}
+			// 						size="large"
+			// 						variant="text"
+			// 						disableElevation
+			// 						color="primary"
+			// 						onClick={goToPreviousStep}
+			// 					>
+			// 						<ChevronLeftSharp
+			// 							style={{ marginRight: 10 }}
+			// 						/>
+			// 						Changer le service
+			// 					</Button>
+			// 				</div>
+			// 			</div>
+			// 		</div>
+			// 	);
 			case 1:
-				return (
-					<div className={classes.formBlock}>
-						<div className={classes.innerBlock}>
-							<div
-								className={`${classes.blockHeader} center-flex-column-content`}
-							>
-								<Typography
-									variant="h5"
-									className={classes.question}
-								>
-									Catégorie des travaux
-								</Typography>
-								<Typography
-									variant="body1"
-									color="inherit"
-									className={classes.blockDescription}
-								>
-									Sélectionnez l'une des catégories
-									ci-dessous.
-								</Typography>
-								<div className={classes.gammeList}>
-									{gammes.length === 0 ? (
-										<Typography
-											variant="h6"
-											color="textSecondary"
-										>
-											Aucune information pour ce service
-											pour l'instant
-										</Typography>
-									) : (
-										gammes.map((gamme) => (
-											<Button
-												key={gamme.id}
-												className={`btn ${classes.gammeBtn}`}
-												size="large"
-												variant="outlined"
-												disableElevation
-												color="primary"
-												onClick={() =>
-													handleSetSelectGamme(gamme)
-												}
-												fullWidth
-											>
-												{gamme.nom}
-												<ChevronRightSharp />
-											</Button>
-										))
-									)}
-								</div>
-								<Button
-									className={`btn`}
-									style={{ marginTop: 10 }}
-									size="large"
-									variant="text"
-									disableElevation
-									color="primary"
-									onClick={goToPreviousStep}
-								>
-									<ChevronLeftSharp
-										style={{ marginRight: 10 }}
-									/>
-									Changer le service
-								</Button>
-							</div>
-						</div>
-					</div>
-				);
-			case 2:
 				return (
 					<div className={classes.formBlock}>
 						<div className={classes.innerBlock}>
@@ -569,13 +570,7 @@ const Reservation = () => {
 									color="textSecondary"
 									className={classes.blockDescription}
 								>
-									Sélectionnez les travaux. Si un travail que
-									vous voulez réserver ne figure pas dans la
-									liste, ajoutez le dans le champs{" "}
-									<span style={{ fontWeight: "bold" }}>
-										autre travail
-									</span>
-									.
+									Donnez une petite description des travaux qui seront réalisés par nos techniciens.
 								</Typography>
 								{errors.works && (
 									<Alert severity="error" color="error">
@@ -583,7 +578,7 @@ const Reservation = () => {
 									</Alert>
 								)}
 							</div>
-							<FormGroup row className={classes.checkboxGroup}>
+							{/* <FormGroup row className={classes.checkboxGroup}>
 								{works.map((work) => (
 									<FormControlLabel
 										className="m-checkbox"
@@ -609,13 +604,13 @@ const Reservation = () => {
 										}
 									/>
 								))}
-							</FormGroup>
+							</FormGroup> */}
 							<div style={{ marginTop: 20 }} className="f-group">
 								<TextInput
-									label="Autre travail ?"
+									label="Description des travaux ?"
 									placeholder="Votre text ici"
 									multiline={true}
-									rowsMax={5}
+									rows={5}
 									fullWidth
 									value={autresTravaux}
 									onChange={(e) =>
@@ -653,7 +648,7 @@ const Reservation = () => {
 						</div>
 					</div>
 				);
-			case 3:
+			case 2:
 				return (
 					<div className={classes.formBlock}>
 						<div className={classes.innerBlock}>
@@ -783,7 +778,7 @@ const Reservation = () => {
 						</div>
 					</div>
 				);
-			case 4:
+			case 3:
 				return (
 					<div className={classes.formBlock}>
 						<div className={classes.innerBlock}>
@@ -903,7 +898,7 @@ const Reservation = () => {
 						</div>
 					</div>
 				);
-			case 5:
+			case 4:
 				return (
 					<div className={classes.formBlock}>
 						<div className={classes.innerBlock}>
@@ -923,7 +918,7 @@ const Reservation = () => {
 						</div>
 					</div>
 				);
-			case 6:
+			case 5:
 				return (
 					<div className={classes.formBlock}>
 						<div className={classes.innerBlock}>
@@ -998,10 +993,19 @@ const Reservation = () => {
 													}
 												>
 													<span>
-														Travaux réservés
+														Détails concernant les travaux réservés
 													</span>
 												</Typography>
-												<ul
+												<Typography
+													variant="body2"
+													style={{ fontWeight: "bold", color: "black" }}
+													className={
+														classes.userDataDisplay
+													}
+												>
+													{autresTravaux}
+												</Typography>
+												{/* <ul
 													style={{
 														padding: "10px 0",
 														color: "#444",
@@ -1017,7 +1021,7 @@ const Reservation = () => {
 															</li>
 														);
 													})}
-												</ul>
+												</ul> */}
 											</div>
 											<div style={{ margin: "15px 0" }}>
 												<Typography

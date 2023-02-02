@@ -15,6 +15,7 @@ import {
 
 import { Typography } from "@material-ui/core";
 import ReactGA from 'react-ga';
+import { Link } from "react-router-dom";
 
 export default function MainPage() {
 	const [open, setOpen] = useState(false);
@@ -27,7 +28,7 @@ export default function MainPage() {
 		setOpen(false);
 	};
 	const handleAskReservation = () => {
-		handleOpen();
+		// handleOpen();
 	};
 
 	useEffect(() => {
@@ -48,16 +49,18 @@ export default function MainPage() {
 							Vous avez une panne ? Obtenez rapidement de l'aide.
 						</Typography>
 						<div className="actions">
-							<Button
-								variant="contained"
-								color="primary"
-								size="large"
-								fullWidth
-								className="btn hero-btn"
-								onClick={handleAskReservation}
-							>
-								Trouvez un(e) technicien(e)
-							</Button>
+							<Link to="reservation">
+								<Button
+									variant="contained"
+									color="primary"
+									size="large"
+									fullWidth
+									className="btn hero-btn"
+									onClick={handleAskReservation}
+								>
+									Trouvez un(e) technicien(e)
+								</Button>
+							</Link>
 						</div>
 					</div>
 					<div className="scroll-indicator">

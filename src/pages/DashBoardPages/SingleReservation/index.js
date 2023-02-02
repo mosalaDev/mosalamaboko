@@ -110,7 +110,7 @@ export default function SingleReservation() {
                                         <span className="value">{formatDate(reservation.date_w)} </span>
                                         <span className="value">{getTime(reservation.date_w)}</span>
                                     </Typography>
-                                    <Typography variant="body2"><span>Zone:</span><span className="value">{reservation.zone.nom}</span></Typography>
+                                    <Typography variant="body2"><span>Zone:</span><span className="value">{reservation?.zone?.nom}</span></Typography>
                                     <Typography variant="body2"><span>Commune:</span><span className="value">{reservation.commune}</span></Typography>
                                     <Typography variant="body2"><span>Quartier:</span><span className="value">{reservation.quartier}</span></Typography>
                                     <Typography variant="body2"><span>Avenue:</span><span className="value">{reservation.avenue}</span></Typography>
@@ -118,8 +118,8 @@ export default function SingleReservation() {
                                 </div>
                                 <div>
                                     <Typography variant="body2" style={{ fontSize: 15, fontWeight: 500 }}>
-                                        <span>Catégorie des travaux: </span>
-                                        <span>{reservation.travaux[0].gamme.nom}</span>
+                                        <span>Détails des travaux: </span>
+                                        <span>{reservation.autresTravaux}</span>
                                     </Typography>
                                     <TableContainer className="table-container">
                                         <Table aria-label="reservation table">
