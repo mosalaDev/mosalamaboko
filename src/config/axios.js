@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const a = axios.create({
-    baseURL: 'https://mosalamabokoapi.up.railway.app/api',
+    baseURL: 'https://mosalaapi.up.railway.app/api',
 });
 
 // const a = axios.create({
