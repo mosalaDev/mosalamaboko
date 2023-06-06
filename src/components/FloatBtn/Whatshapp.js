@@ -33,7 +33,7 @@ export default function WhatsappFloatBtn() {
 	const classes = useStyles();
 	return (
 		<a
-			href="https://wa.me/message/NZIZYKTMUOJLO1"
+			href="https://wa.me/message/YBC3T72IPIMAE1"
 			style={{ position: "relative" }}
 		>
 			<Fab
